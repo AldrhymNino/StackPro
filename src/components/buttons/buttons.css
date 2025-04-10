@@ -1,0 +1,8 @@
+/* Reset */
+@import url('../style/themes.css');
+.btn {
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    /* background-color: ; */
+}

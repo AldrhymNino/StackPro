@@ -1,0 +1,68 @@
+/* Reset */
+@import url('../style/themes.css');
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background);
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+
+.header {
+    width: 250px;
+    box-shadow: 10px 0 10px #0000000e;
+}
+
+.header .header_container {
+    padding: 30px 25px 0 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav {
+    height: calc(100% - 78px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav .group_links {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav a {
+    color: inherit;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav a div {
+    width: 75%;
+}
+
+.nav a:hover {
+    background-color: #00000017;
+
+}
+
+main {
+    width: calc(100% - 250px);
+    padding: 50px 30px;
+}
+
+.icons {
+    color: var(--primary)!important;
+    /* margin-right: 10px; */
+} 
