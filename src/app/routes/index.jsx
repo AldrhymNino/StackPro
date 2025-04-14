@@ -8,7 +8,8 @@ import {
     Notes, 
     Bin, 
     NotFound,
-    Calendary
+    Calendary,
+    Profile
 } from "../../pages";
 
 const AppRoutes = () => {
@@ -20,7 +21,8 @@ const AppRoutes = () => {
                 <Route path="/notes" element={<Notes/>} />
                 <Route path="/bin" element={<Bin/>} />
                 <Route path="/goals" element={<Goals/>} />
-                <Route path="/calendary" element={<Calendary/>}/>
+                <Route path="/calendary" element={<Calendary/>} />
+                <Route path="/profile" element={<Profile/>} />
             </Route>
             <Route path="/config" element={<Config/>} />
             <Route path="*" element={<NotFound/>} />

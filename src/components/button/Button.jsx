@@ -1,6 +1,10 @@
+// Styles
+import './style.css';
+
+
 const Button = ({ className, handle, children }) => {
     return (
-        <button className={`btn ${className}`} onClick={handle}>
+        <button className={className} onClick={handle}>
             { children }
         </button>
     );

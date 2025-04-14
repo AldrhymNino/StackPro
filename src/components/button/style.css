@@ -1,0 +1,14 @@
+/* themes */
+@import url('../../style/themes.css');
+
+.btn {
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.primary {
+    background-color: var(--primary);
+    color: var(--text-alt);
+}

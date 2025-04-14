@@ -1,4 +1,4 @@
-/* Reset */
+/* Theme */
 @import url('../style/themes.css');
 
 .container {
@@ -59,10 +59,10 @@
 
 main {
     width: calc(100% - 250px);
-    padding: 50px 30px;
+    overflow: hidden auto;
+    padding: 0px 30px;
 }
 
 .icons {
-    color: var(--primary)!important;
-    /* margin-right: 10px; */
+    color: var(--primary);
 } 

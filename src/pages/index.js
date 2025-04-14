@@ -1,6 +1,7 @@
 export { Calendary } from "./Calendary/Calendary.jsx";
 export { NotFound } from "./NotFound/NotFound.jsx";
 export { Proyects } from "./Proyects/Proyects.jsx";
+export { Profile } from "./profile/Profile.jsx";
 export { Config } from "./Config/Config.jsx";
 export { Notes } from "./Notes/Notes.jsx";
 export { Goals } from "./Goals/Goals.jsx";

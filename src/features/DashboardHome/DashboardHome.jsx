@@ -1,9 +1,12 @@
-// Styles
-import './dashboardHome.css';
+// Components
+import { Button } from '../../components/';
 
 // Icons FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faBullseye, faStar, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+
+// Styles
+import './dashboardHome.css';
 
 const DashboardHome = () => {
     const username = "¡Hola, Aldrhym!"; // Esto podría venir del contexto o props
@@ -37,9 +40,9 @@ const DashboardHome = () => {
 
             <h3 className='title_actions'>¿Que quieres hacer hoy?</h3>
             <div className="quick-actions">
-                <button className="action-btn">Nuevo Proyecto</button>
-                <button className="action-btn">Agregar Tarea</button>
-                <button className="action-btn">Crear Meta</button>
+                <Button className="btn primary">Nuevo Proyecto</Button>
+                <Button className="btn primary">Agregar Tarea</Button>
+                <Button className="btn primary">Crear Meta</Button>
             </div>
         </div>
     );

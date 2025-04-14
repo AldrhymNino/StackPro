@@ -1,7 +1,10 @@
 /* Variables */
 :root {
+    /* backgrounds */
     --primary: #643498;
     --background: #e2e2e2;
     --background2: #d8d8d8;
+    /* Text */
     --text: #4d4d4d;
+    --text-alt: var(--background);
 }

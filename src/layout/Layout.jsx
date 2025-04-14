@@ -35,7 +35,7 @@ const Layout = () => {
                         <Link to="/calendary"><FontAwesomeIcon className='icons' icon={faCalendarDays} /><div>Calendary</div></Link>
                     </div>
                     <div className="group_links">
-                        <a href='#'><FontAwesomeIcon className='icons' icon={faUser} /><div>User name</div></a>
+                        <Link to="/profile"><FontAwesomeIcon className='icons' icon={faUser} /><div>Aldrhym Niño</div></Link>
                         <Link to="/config"><FontAwesomeIcon className='icons' icon={faGear} /><div>Configuration</div></Link>
                     </div>
                 </nav>
