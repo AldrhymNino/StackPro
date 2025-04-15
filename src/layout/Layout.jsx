@@ -27,7 +27,7 @@ const Layout = () => {
                 </div>
                 <nav className="nav">
                     <div className="group_links">
-                        <Link to="/"><FontAwesomeIcon className='icons' icon={faHouse} /><div>Home</div></Link>
+                        <Link to="/DashboardHome"><FontAwesomeIcon className='icons' icon={faHouse} /><div>Dashboard</div></Link>
                         <Link to="/proyects"><FontAwesomeIcon className='icons' icon={faFolderOpen} /><div>Proyects</div></Link>
                         <Link to="/notes"><FontAwesomeIcon className='icons' icon={faNoteSticky} /><div>Notes</div></Link>
                         <Link to="/goals"><FontAwesomeIcon className='icons' icon={faBullseye} /><div>Goals</div></Link>

@@ -1,0 +1,29 @@
+/* themes */
+@import url('../../style/themes.css');
+@import url('../../style/main.css');
+
+.btn {
+    width: auto;
+    height: auto;
+    padding: 7px 17px;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn:active {
+    opacity: 0.6;
+}
+
+.primary {
+    background-color: var(--primary);
+    color: var(--text-alt);
+}
+
+.btn.outlined.primary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
