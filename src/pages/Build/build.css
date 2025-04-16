@@ -1,0 +1,6 @@
+/* Themes */
+@import url('../../style/themes.css');
+
+body {
+    background-color: var(--background);
+}

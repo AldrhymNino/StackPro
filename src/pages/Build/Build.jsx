@@ -3,6 +3,8 @@ import {
   Button 
 } from "../../components";
 
+import './build.css';
+
 const  Build = () => {
   return (
     <>

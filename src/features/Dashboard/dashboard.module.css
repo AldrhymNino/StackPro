@@ -24,30 +24,14 @@
     margin-bottom: 60px;
   }
   
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #f4f4f4;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-  
-  .card h3 {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-  
   .icon {
     font-size: 32px;
   }
   
-  .icon.completed { color: #28a745; }
-  .icon.goals { color: #dc3545; }
-  .icon.exp { color: #ffc107; }
-  .icon.project { color: #007bff; }
+  .completed { color: #28a745; }
+  .goals { color: #dc3545; }
+  .exp { color: #ffc107; }
+  .project { color: #007bff; }
 
   .title_actions {
     text-align: center;
