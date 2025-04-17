@@ -1,44 +1,56 @@
-import React from 'react';
-import './home.css';
+// Hooks
+import { useNavigate } from 'react-router-dom';
+
+// Components
+import { Button, Card } from '../../components';
+
+// Img
+import preview from '../../assets/dashboard-preview.png';
+
+// Style
+import styles from './home.module.css';
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
   return (
-    <div className="landing-container">
-      <header className="landing-header">
-        <h1 className="logo">StackPro</h1>
+    <div className={styles["landing-container"]}>
+      <header className={styles["landing-header"]}>
+        <h1 className={styles["logo"]}>StackPro</h1>
         <nav>
-          <button className="btn">Iniciar sesión</button>
-          <button className="btn btn-primary">Registrarse</button>
+          <Button primary>Iniciar sesión</Button>
+          <Button primary outlined>Registrarse</Button>
         </nav>
       </header>
 
-      <section className="hero">
-        <div className="hero-text">
+      <section className={styles["hero"]}>
+        <div className={styles["hero-text"]}>
           <h2>Convierte tu productividad en un juego</h2>
           <p>
             Planifica, organiza y alcanza tus metas mientras ganas experiencia y
             desbloqueas recompensas con StackPro.
           </p>
-          <button className="btn btn-primary">Empezar ahora</button>
+          <Button primary handle={() => { navigate('/dashboard') }}>Empezar ahora</Button>
         </div>
-        <div className="hero-image">
-          <img src="/assets/dashboard-preview.png" alt="Vista previa StackPro" />
-        </div>
-      </section>
-
-      <section className="features">
-        <h3>¿Qué puedes hacer con StackPro?</h3>
-        <div className="feature-list">
-          <div className="feature">🧩 Crear proyectos estructurados</div>
-          <div className="feature">✅ Checklist de tareas con fechas</div>
-          <div className="feature">🎯 Establecer y tachar metas</div>
-          <div className="feature">📅 Planificar en un calendario</div>
-          <div className="feature">🌟 Sistema de EXP y niveles</div>
-          <div className="feature">💡 Tomar notas organizadas</div>
+        <div className={styles["hero-image"]}>
+          <img src={preview} alt="Vista previa StackPro" />
         </div>
       </section>
 
-      <section className="gamification">
+      <section className={styles["features"]}>
+        <h2>¿Qué puedes hacer con StackPro?</h2>
+        <div className={styles["feature-list"]}>
+          <Card>🧩 Crear proyectos estructurados</Card>
+          <Card>✅ Checklist de tareas con fechas</Card>
+          <Card>🎯 Establecer y tachar metas</Card>
+          <Card>📅 Planificar en un calendario</Card>
+          <Card>🌟 Sistema de EXP y niveles</Card>
+          <Card>💡 Tomar notas organizadas</Card>
+        </div>
+      </section>
+
+      <section className={styles["gamification"]}>
         <h3>Haz que cada paso cuente</h3>
         <p>
           Cada tarea completada suma puntos. Cada meta alcanzada te acerca a un
@@ -46,7 +58,7 @@ const Home = () => {
         </p>
       </section>
 
-      <footer className="landing-footer">
+      <footer className={styles["landing-footer"]}>
         <p>© 2025 StackPro · Hecho con 💻 por Aldrin Gabriel Niño</p>
       </footer>
     </div>

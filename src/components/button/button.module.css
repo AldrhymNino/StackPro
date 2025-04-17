@@ -20,6 +20,7 @@
 .primary {
     background-color: var(--primary);
     color: var(--text-alt);
+    border: 2px solid var(--primary);
 }
 
 .btn.outlined.primary {
@@ -27,3 +28,4 @@
     color: var(--primary);
     border: 2px solid var(--primary);
 }
+
