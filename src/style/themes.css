@@ -1,10 +1,21 @@
 /* Variables */
 :root {
-    /* backgrounds */
-    --primary: #643498;
-    --background: #e2e2e2;
-    --background2: #d8d8d8;
+    /* Brand Colors */
+    /* --primary: #064E3B; */
+    --primary: #0F766E;
+    --secondary: #334155;
+    --success:    #22C55E; /* Verde positivo */
+    --warning:    #FACC15; /* Amarillo suave, no tan agresivo */
+    --error:      #EF4444; /* Rojo claro */
+    --info:       #0EA5E9; /* Azul cielo, más claro que secondary */
+  
+    /* Backgrounds */
+    --background:     #F9FAFB; /* Gris casi blanco */
+    --background2:    #E5E7EB; /* Gris claro */
+    --background-dark:#1F2937; /* Gris oscuro para tema oscuro */
+  
     /* Text */
-    --text: #4d4d4d;
-    --text-alt: var(--background);
-}
+    --text:       #27313f; /* Gris oscuro (para texto legible) */
+    --text-alt: #FFFFFF; /* Para usar en fondos oscuros o botones */
+  }
+  

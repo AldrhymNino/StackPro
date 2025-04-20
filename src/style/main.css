@@ -34,3 +34,13 @@ button {
     color: inherit;
     font-weight: 600;
 }
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}

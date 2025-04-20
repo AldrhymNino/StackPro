@@ -2,7 +2,7 @@
 import styles from './button.module.css';
 import clsx from 'clsx';
 
-const Button = ({ handle, children, outlined, rounded, primary }) => {
+const Button = ({ handle, children, outlined, rounded, primary, icon }) => {
 
     const classes = clsx(
         styles['btn'],
@@ -10,6 +10,7 @@ const Button = ({ handle, children, outlined, rounded, primary }) => {
             [styles['outlined']]: outlined,
             [styles['rounded']]: rounded,
             [styles['primary']]: primary,
+            [styles['icon']]: icon,
         }
     );
     

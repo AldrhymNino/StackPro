@@ -6,6 +6,12 @@ import { Button, Card } from '../../components';
 
 // Img
 import preview from '../../assets/dashboard-preview.png';
+import proyect from '../../assets/proyect_features.png';
+import tasking from '../../assets/tasking_features.png';
+import calendary from '../../assets/calendary_features.png';
+import notes from '../../assets/notes_features.png';
+import goals from '../../assets/goals_features.png';
+import exp from '../../assets/exp_features.png';
 
 // Style
 import styles from './home.module.css';
@@ -41,12 +47,24 @@ const Home = () => {
       <section className={styles["features"]}>
         <h2>¿Qué puedes hacer con StackPro?</h2>
         <div className={styles["feature-list"]}>
-          <Card>🧩 Crear proyectos estructurados</Card>
-          <Card>✅ Checklist de tareas con fechas</Card>
-          <Card>🎯 Establecer y tachar metas</Card>
-          <Card>📅 Planificar en un calendario</Card>
-          <Card>🌟 Sistema de EXP y niveles</Card>
-          <Card>💡 Tomar notas organizadas</Card>
+          <Card img={proyect}>
+            <p>Crear proyectos estructurados</p>
+          </Card>
+          <Card img={tasking}>
+            <p>Checklist de tareas con fechas</p>
+          </Card>
+          <Card img={goals}>
+            <p>Establecer y tachar metas</p>
+          </Card>
+          <Card img={calendary}>
+            <p>Planificar en un calendario</p>
+          </Card>
+          <Card img={exp}>
+            <p>Aumentar de EXP y niveles</p>
+          </Card>
+          <Card img={notes}>
+            <p>Tomar notas organizadas</p>
+          </Card>
         </div>
       </section>
 
@@ -59,7 +77,7 @@ const Home = () => {
       </section>
 
       <footer className={styles["landing-footer"]}>
-        <p>© 2025 StackPro · Hecho con 💻 por Aldrin Gabriel Niño</p>
+        <p>© 2025 StackPro · Hecho con 💻 por Aldrhym Gabriel Niño</p>
       </footer>
     </div>
   );

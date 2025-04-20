@@ -1,5 +1,5 @@
 // Components
-import { Button, Card } from '../../components';
+import { Button, CardDashboard } from '../../components';
 
 // Icons FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,26 +13,32 @@ const Dashboard = () => {
     const username = "¡Hola, Aldrhym!"; // Esto podría venir del contexto o props
 
     return (
-        <div className={styles['dashboard-home']}>
-            <h2 className={styles["greeting"]}>{username}</h2>
-            <p className="subtext">Este es tu resumen de progreso de StackPro</p>
+        <>
+            <div className={styles['header-dashboard']}>
+                <h2 className={styles["greeting"]}>{username}</h2>
+                <p className="subtext">Este es tu resumen de progreso de StackPro</p>
+            </div>
 
             <div className={styles["summary-cards"]}>
-                <Card head={<FontAwesomeIcon icon={faCheckCircle} className={clsx(styles['icon'], styles['completed'])} />} className={styles["card"]}>
+                <CardDashboard className={styles["card"]}>
+                    <FontAwesomeIcon icon={faCheckCircle} className={clsx(styles['icon'], styles['completed'])} />
                     <h3>12 tareas completadas</h3>
-                </Card>
+                </CardDashboard>
 
-                <Card head={<FontAwesomeIcon icon={faBullseye} className={clsx(styles['icon'], styles['goals'])} />} className={styles["card"]}>
+                <CardDashboard className={styles["card"]}>
+                    <FontAwesomeIcon icon={faBullseye} className={clsx(styles['icon'], styles['goals'])} />
                     <h3>4 metas logradas</h3>
-                </Card>
+                </CardDashboard>
 
-                <Card head={<FontAwesomeIcon icon={faStar} className={clsx(styles['icon'], styles['exp'])} />} className={styles["card"]}>
+                <CardDashboard className={styles["card"]}>
+                    <FontAwesomeIcon icon={faStar} className={clsx(styles['icon'], styles['exp'])} />
                     <h3>Nivel 5 · 620 EXP</h3>
-                </Card>
+                </CardDashboard>
 
-                <Card head={<FontAwesomeIcon icon={faProjectDiagram} className={clsx(styles['icon'], styles['project'])} />} className={styles["card"]}>
+                <CardDashboard className={styles["card"]}>
+                    <FontAwesomeIcon icon={faProjectDiagram} className={clsx(styles['icon'], styles['project'])} />
                     <h3>3 proyectos activos</h3>
-                </Card>
+                </CardDashboard>
             </div>
 
             <h3 className={styles['title_actions']}>¿Que quieres hacer hoy?</h3>
@@ -41,7 +47,7 @@ const Dashboard = () => {
                 <Button primary>Agregar Tarea</Button>
                 <Button primary>Crear Meta</Button>
             </div>
-        </div>
+        </>
     );
 };
 

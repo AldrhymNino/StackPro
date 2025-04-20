@@ -5,12 +5,14 @@
 .btn {
     width: auto;
     height: auto;
-    padding: 7px 17px;
-    border-radius: 5px;
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.btn:hover {
-    opacity: 0.8;
+.btn.primary:hover {
+    box-shadow: 0 0 6px var(--secondary);
 }
 
 .btn:active {
@@ -23,9 +25,28 @@
     border: 2px solid var(--primary);
 }
 
-.btn.outlined.primary {
+.outlined.primary {
     background-color: transparent;
     color: var(--primary);
     border: 2px solid var(--primary);
 }
 
+.outlined.primary:hover {
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+}
+
+.icon {
+   width: 40px;
+   height: 40px;
+   border-radius: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: var(--primary);
+}
+
+.icon:hover {
+   background-color: var(--secondary);
+   color: var(--text-alt);
+}
