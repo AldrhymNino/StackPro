@@ -11,7 +11,8 @@ import {
     faUser,
     faBell,
     faMoon,
-    faSearch
+    faSearch,
+    faPlus
 } from '@fortawesome/free-solid-svg-icons';
 
 // Components
@@ -19,12 +20,15 @@ import { Button } from '../components';
 
 
 // routers
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 // Style
 import "./layout.css";
 
 const Layout = () => {
+
+    const location = useLocation();
+    const navigate = useNavigate();
     return (
         <div className="container">
             <header className='header'>
@@ -48,7 +52,7 @@ const Layout = () => {
             </header>
             <nav className="nav">
                 <div className="group_links">
-                    <Link to="/Dashboard"><FontAwesomeIcon className='icons' icon={faHouse} /><div>Dashboard</div></Link>
+                    <Link to="/dashboard"><FontAwesomeIcon className='icons' icon={faHouse} /><div>Dashboard</div></Link>
                     <Link to="/proyects"><FontAwesomeIcon className='icons' icon={faFolderOpen} /><div>Proyects</div></Link>
                     <Link to="/notes"><FontAwesomeIcon className='icons' icon={faNoteSticky} /><div>Notes</div></Link>
                     <Link to="/goals"><FontAwesomeIcon className='icons' icon={faBullseye} /><div>Goals</div></Link>
@@ -63,6 +67,12 @@ const Layout = () => {
             <main>
                 <Outlet />
             </main>
+            {
+                location.pathname !== "/dashboard" &&
+                <Button floated icon handle={() => navigate('proyects/create')}>
+                    <FontAwesomeIcon icon={faPlus} />
+                </Button>
+            }
         </div>
     );
 };

@@ -3,7 +3,6 @@
 .header-dashboard {
   width: 100%;
   color: var(--text);
-  /* background-color: var(--secondary); */
   padding: 50px 0 0 50px;
 }
 
@@ -19,22 +18,21 @@
 
 .summary-cards {
   width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  padding: 50px 50px;
+  margin: 50px 0 50px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "card1 card2 card3"
+    "card4 card4 card4";
+  gap: 1rem;
 }
 
-.summary-cards div {
-  flex-basis: 100%;
-  max-width: 313px;
-  margin: 1%;
-}
+  .card1 { grid-area: card1; }
+  .card2 { grid-area: card2; }
+  .card3 { grid-area: card3; }
+  .card4 { grid-area: card4; }
 
-.summary-cards div:last-child {
-  flex-basis: 100%;
-  max-width: 1000px;
-}
 
 .icon {
   font-size: 32px;
@@ -56,8 +54,11 @@
   align-items: center;
   gap: 15px;
   flex-wrap: wrap;
+  padding-bottom: 50px;
 }
 
 .btn {
   width: 250px;
 }
+
+/* Mediaqueries */

@@ -14,7 +14,7 @@
     align-items: center;
     padding: 1.5rem 2rem;
     background-color: var(--background);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   }
 
   .landing-header nav {
@@ -54,14 +54,21 @@
   
   .hero-image {
     flex: 1 1 300px;
+    max-width: 1000px;
     text-align: center;
-  }
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
   
   .hero-image img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 1000px;
     height: auto;
     border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
   
   .features {

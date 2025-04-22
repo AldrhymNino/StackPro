@@ -44,9 +44,19 @@
    justify-content: center;
    align-items: center;
    color: var(--primary);
+   padding: 10px;
 }
 
 .icon:hover {
    background-color: var(--secondary);
    color: var(--text-alt);
+}
+
+.floated {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    font-size: 1.5rem;
+    background-color: var(--primary);
+    color: var(--text-alt);
 }

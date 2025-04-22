@@ -1,9 +1,8 @@
-// Hooks
-import { useRef } from 'react';
-import { useEffect } from 'react';
-
 // Styles
 import styles from './card.module.css';
+
+// Utils
+import clsx from 'clsx';
 
 const Card = ({ img, children }) => {
     return (
@@ -18,18 +17,16 @@ const Card = ({ img, children }) => {
                 </div>
             }
             <div className={styles['content-card']}>
-                <p>
-                    { children }
-                </p>
+                { children }
             </div>
         </div>
     );
 }
 
 
-const CardDashboard = ({ children }) => {
+const CardDashboard = ({ children, className }) => {
   return (
-    <div className={styles['card-dashboard']}>
+    <div className={clsx(styles['card-dashboard'], className)}>
       {children}
     </div>
   );

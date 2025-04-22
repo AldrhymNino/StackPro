@@ -99,6 +99,7 @@ main {
     width: calc(100% - 250px);
     height: calc(100% - 80px);
     overflow: hidden auto;
+    padding: 0 50px;
 }
 
 .icons {

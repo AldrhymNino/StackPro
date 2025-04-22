@@ -11,7 +11,8 @@ import {
     Calendary,
     Profile,
     Home,
-    Build
+    Build,
+    Createproyect
 } from "../../pages";
 
 const AppRoutes = () => {
@@ -20,9 +21,13 @@ const AppRoutes = () => {
             <Route path="/build" element={<Build/>} />
             <Route path="/" element={<Home/>} />
             <Route element={<Layout/>}>
-                <Route path="/Dashboard" element={<Dashboard/>} />
+                <Route path="/dashboard" element={<Dashboard/>} />
+
                 <Route path="/proyects" element={<Proyects/>} />
+                <Route path="/proyects/create" element={<Createproyect />} />
+
                 <Route path="/notes" element={<Notes/>} />
+
                 <Route path="/bin" element={<Bin/>} />
                 <Route path="/goals" element={<Goals/>} />
                 <Route path="/calendary" element={<Calendary/>} />
