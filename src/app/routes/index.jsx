@@ -12,7 +12,8 @@ import {
     Profile,
     Home,
     Build,
-    Createproyect
+    Createproyect,
+    Createnote
 } from "../../pages";
 
 const AppRoutes = () => {
@@ -27,6 +28,7 @@ const AppRoutes = () => {
                 <Route path="/proyects/create" element={<Createproyect />} />
 
                 <Route path="/notes" element={<Notes/>} />
+                <Route path="/notes/create" element={<Createnote />} />
 
                 <Route path="/bin" element={<Bin/>} />
                 <Route path="/goals" element={<Goals/>} />

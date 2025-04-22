@@ -29,6 +29,8 @@ const Layout = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
+    const path = location.pathname;
+    
     return (
         <div className="container">
             <header className='header'>
@@ -68,8 +70,11 @@ const Layout = () => {
                 <Outlet />
             </main>
             {
-                location.pathname !== "/dashboard" &&
-                <Button floated icon handle={() => navigate('proyects/create')}>
+                path !== "/dashboard" &&
+                path !== "/bin" &&
+                path !== "/goals" &&
+                path !== "/calendary" &&
+                <Button floated icon handle={() => navigate(`${path}/create${path.substring(0, 1)}`)}>
                     <FontAwesomeIcon icon={faPlus} />
                 </Button>
             }

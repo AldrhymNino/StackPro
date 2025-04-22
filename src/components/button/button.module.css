@@ -4,11 +4,14 @@
 
 .btn {
     width: auto;
-    height: auto;
-    padding: 10px 15px;
+    height: 40px;
+    padding: 0 10px;
     border-radius: 12px;
     font-weight: bold;
     transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn.primary:hover {
@@ -59,4 +62,14 @@
     font-size: 1.5rem;
     background-color: var(--primary);
     color: var(--text-alt);
+}
+
+.ghost {
+    background-color: transparent;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.ghost:hover {
+    opacity: 0.6;
 }

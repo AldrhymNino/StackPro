@@ -1,0 +1,23 @@
+/* themes */
+@import url('../../style/themes.css');
+
+.nav-proyects {
+    width: 100%;
+    margin-top: 40px;
+    border-bottom: solid 1px var(--secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .category-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .icon {
+        margin-right: 10px;
+    }

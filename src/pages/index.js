@@ -1,4 +1,5 @@
 export { Createproyect } from "./Proyects/Createproyect.jsx";
+export { Createnote } from "./Notes/Createnote.jsx";
 export { Calendary } from "./Calendary/Calendary.jsx";
 export { Dashboard } from "./Dashboard/Dashboard.jsx";
 export { NotFound } from "./NotFound/NotFound.jsx";

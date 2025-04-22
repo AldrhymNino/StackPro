@@ -2,7 +2,7 @@
 import styles from './button.module.css';
 import clsx from 'clsx';
 
-const Button = ({ handle, children, outlined, rounded, primary, icon, floated }) => {
+const Button = ({ handle, children, outlined, rounded, primary, icon, floated, ghost }) => {
 
     const classes = clsx(
         styles['btn'],
@@ -11,7 +11,8 @@ const Button = ({ handle, children, outlined, rounded, primary, icon, floated })
             [styles['rounded']]: rounded,
             [styles['primary']]: primary,
             [styles['icon']]: icon,
-            [styles['floated']] :floated
+            [styles['floated']] :floated,
+            [styles['ghost']]: ghost,
         }
     );
     
