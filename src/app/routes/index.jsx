@@ -5,32 +5,30 @@ import {
     Proyects, 
     Config, 
     Goals, 
-    Notes, 
-    Bin, 
+    Notes,
     NotFound,
     Calendary,
     Profile,
     Home,
-    Build,
     Createproyect,
-    Createnote
+    Createnote,
+    Openproyects
 } from "../../pages";
 
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/build" element={<Build/>} />
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<Home />} />
             <Route element={<Layout/>}>
                 <Route path="/dashboard" element={<Dashboard/>} />
 
                 <Route path="/proyects" element={<Proyects/>} />
                 <Route path="/proyects/create" element={<Createproyect />} />
+                <Route path="/proyects/:proyectName" element={<Openproyects />} />
 
                 <Route path="/notes" element={<Notes/>} />
                 <Route path="/notes/create" element={<Createnote />} />
 
-                <Route path="/bin" element={<Bin/>} />
                 <Route path="/goals" element={<Goals/>} />
                 <Route path="/calendary" element={<Calendary/>} />
                 <Route path="/profile" element={<Profile/>} />

@@ -1,0 +1,10 @@
+.textarea {
+    border: 1px solid var(--background2);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 700px;
+    height: 200px;
+    resize: none;
+    margin-top: 50px;
+}

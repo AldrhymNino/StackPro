@@ -13,10 +13,21 @@ import clsx from 'clsx';
 // Components
 import { CardDashboard } from '../../../components';
 
+// Hooks
+import { useStorageProyects } from '../../../service/useStorageProyects';
+
 // Styles
 import styles from '../dashboard.module.css';
 
 const SummaryCards = () => {
+  const {state} = useStorageProyects();
+
+  const proyectsActive = () => {
+    if (!state) return 0;
+    const active = state.filter(({completed}) => completed === false);
+    return active.length;
+  };
+
   return (
     <div className={styles["summary-cards"]}>
       <CardDashboard className={clsx(styles["card"], styles['card1'])}>
@@ -36,7 +47,7 @@ const SummaryCards = () => {
 
       <CardDashboard className={clsx(styles["card"], styles['card4'])}>
         <FontAwesomeIcon icon={faProjectDiagram} className={clsx(styles['icon'], styles['project'])} />
-        <h3>3 proyectos activos</h3>
+        <h3> {proyectsActive()} proyectos activos</h3>
       </CardDashboard>
     </div>
   );

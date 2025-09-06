@@ -2,22 +2,22 @@
 import styles from './button.module.css';
 import clsx from 'clsx';
 
-const Button = ({ handle, children, outlined, rounded, primary, icon, floated, ghost }) => {
+const Button = ({type, handle, children, outlined, primary, icon, floated, ghost, style, notHover }) => {
 
     const classes = clsx(
         styles['btn'],
         {
             [styles['outlined']]: outlined,
-            [styles['rounded']]: rounded,
             [styles['primary']]: primary,
             [styles['icon']]: icon,
             [styles['floated']] :floated,
             [styles['ghost']]: ghost,
+            [styles['notHover']]: notHover,
         }
     );
     
     return (
-        <button className={classes} onClick={handle}>
+        <button type={type || 'button'} className={classes} onClick={handle} style={style}>
             { children }
         </button>
     );

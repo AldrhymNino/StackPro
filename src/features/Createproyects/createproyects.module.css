@@ -1,0 +1,19 @@
+.container-create-proyects {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.input {
+    width: 100%;
+    max-width: 700px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid var(--background2);
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+}

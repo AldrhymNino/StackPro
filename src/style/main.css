@@ -44,3 +44,13 @@ input {
     border: none;
     outline: none;
 }
+
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}

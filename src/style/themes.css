@@ -1,21 +1,21 @@
 /* Variables */
+/* This file contains the variable definitions for the theme */
 :root {
     /* Brand Colors */
-    /* --primary: #064E3B; */
     --primary: #0F766E;
-    --secondary: #334155;
-    --success:    #22C55E; /* Verde positivo */
-    --warning:    #FACC15; /* Amarillo suave, no tan agresivo */
-    --error:      #EF4444; /* Rojo claro */
-    --info:       #0EA5E9; /* Azul cielo, más claro que secondary */
+    --secondary: #57616e;
+    --success:    #22C55E;
+    --warning:    #FACC15; 
+    --error:      #EF4444; 
+    --info:       #0EA5E9; 
   
     /* Backgrounds */
-    --background:     #F9FAFB; /* Gris casi blanco */
-    --background2:    #E5E7EB; /* Gris claro */
-    --background-dark:#1F2937; /* Gris oscuro para tema oscuro */
+    --background:     #F9FAFB; 
+    --background2:    #d3d4d6; 
+    --background-dark:#1F2937; 
   
     /* Text */
-    --text:       #27313f; /* Gris oscuro (para texto legible) */
-    --text-alt: #FFFFFF; /* Para usar en fondos oscuros o botones */
+    --text:       #3b4552; 
+    --text-alt: #FFFFFF; 
   }
   

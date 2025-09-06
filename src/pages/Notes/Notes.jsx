@@ -1,5 +1,12 @@
+import { NavWorkspace } from "../../components";
+
 const Notes = () => {
-    return (<h2>Hola mundo 3</h2>)
+    return (
+        <>
+            <h1>Notes</h1>
+            <NavWorkspace />
+        </>
+    )
 };
 
 export { Notes };

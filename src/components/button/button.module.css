@@ -6,16 +6,20 @@
     width: auto;
     height: 40px;
     padding: 0 10px;
-    border-radius: 12px;
+    border-radius: 7px;
     font-weight: bold;
-    transition: 0.3s;
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
 }
 
+
 .btn.primary:hover {
-    box-shadow: 0 0 6px var(--secondary);
+    box-shadow: 0 0 3px var(--secondary);
 }
 
 .btn:active {
@@ -48,10 +52,15 @@
    align-items: center;
    color: var(--primary);
    padding: 10px;
+   transition: all 0.2s ease-in-out;
+   -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   -ms-transition: all 0.2s ease-in-out;
+   -o-transition: all 0.2s ease-in-out;
 }
 
 .icon:hover {
-   background-color: var(--secondary);
+   background-color: var(--primary);
    color: var(--text-alt);
 }
 
@@ -72,4 +81,8 @@
 
 .ghost:hover {
     opacity: 0.6;
+}
+
+.notHover {
+    background-color: transparent !important;
 }

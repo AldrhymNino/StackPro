@@ -1,0 +1,43 @@
+@import url('../../style/themes.css');
+
+.task-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+.div-input-addTask {
+    display: flex;
+    align-items: center;
+}
+
+.task-title {
+    margin-bottom: 30px;
+}
+
+.input-addTask {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.container-task {
+    width: 100%;
+    height: 500px;
+    overflow: hidden auto;
+    padding: 20px;
+    margin-top: 30px;
+    border: solid 1px var(--background2);
+    border-radius: 10px;
+
+}
+
+.task-item {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-radius: 5px;
+    background-color: var(--background2);
+    margin: 20px 0;
+}

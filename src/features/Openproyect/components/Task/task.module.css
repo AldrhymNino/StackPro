@@ -1,0 +1,17 @@
+.task-card {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.task-card:hover {
+    background-color: #00000042;
+}
+
+.task-card input {
+    margin-right: 10px;
+}

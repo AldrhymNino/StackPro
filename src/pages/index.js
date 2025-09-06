@@ -1,4 +1,5 @@
 export { Createproyect } from "./Proyects/Createproyect.jsx";
+export { Openproyects } from "./Proyects/Openproyects.jsx";
 export { Createnote } from "./Notes/Createnote.jsx";
 export { Calendary } from "./Calendary/Calendary.jsx";
 export { Dashboard } from "./Dashboard/Dashboard.jsx";
@@ -6,8 +7,6 @@ export { NotFound } from "./NotFound/NotFound.jsx";
 export { Proyects } from "./Proyects/Proyects.jsx";
 export { Profile } from "./profile/Profile.jsx";
 export { Config } from "./Config/Config.jsx";
-export { Build } from "./Build/Build.jsx";
 export { Notes } from "./Notes/Notes.jsx";
 export { Goals } from "./Goals/Goals.jsx";
 export { Home } from "./Home/Home.jsx";
-export { Bin } from "./Bin/Bin.jsx";

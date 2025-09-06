@@ -1,0 +1,15 @@
+/* Themes */
+@import url("../../../style/themes.css");
+
+.editable-input {
+  width: 100%;
+  max-width: 700px;
+  word-break: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid transparent;
+}
+

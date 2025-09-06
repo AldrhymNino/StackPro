@@ -19,6 +19,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 1;
+    border-bottom: solid 1px var(--background2);
 }
 
 .header .header_container {
@@ -26,28 +27,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.search {
-    height: 40px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: solid 1px var(--secondary);
-}
-
-.search input {
-    width: 100%;
-    height: 100%;
-    padding: 0 20px;
-    border-radius: 20px;
-    color: var(--text);
-    border: none;
-}
-
-.search input:focus {
-    outline: none;
 }
 
 .header-buttons {
@@ -99,7 +78,7 @@ main {
     width: calc(100% - 250px);
     height: calc(100% - 80px);
     overflow: hidden auto;
-    padding: 0 50px;
+    padding: 50px 50px;
 }
 
 .icons {

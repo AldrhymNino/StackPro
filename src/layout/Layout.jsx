@@ -1,8 +1,7 @@
 // Icons FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
-    faHouse, 
-    faTrash, 
+    faHouse,  
     faFolderOpen, 
     faNoteSticky, 
     faBullseye,
@@ -11,7 +10,6 @@ import {
     faUser,
     faBell,
     faMoon,
-    faSearch,
     faPlus
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,28 +18,18 @@ import { Button } from '../components';
 
 
 // routers
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 // Style
 import "./layout.css";
 
 const Layout = () => {
-
-    const location = useLocation();
-    const navigate = useNavigate();
-    const path = location.pathname;
     
     return (
         <div className="container">
             <header className='header'>
                 <div className="logo">
                     <h1>StackPro</h1>
-                </div>
-                <div className="search">
-                    <input type="text" placeholder='Search...' />
-                    <Button icon>
-                        <FontAwesomeIcon icon={faSearch} />
-                    </Button>
                 </div>
                 <div className='header-buttons'>
                     <Button icon>
@@ -58,7 +46,6 @@ const Layout = () => {
                     <Link to="/proyects"><FontAwesomeIcon className='icons' icon={faFolderOpen} /><div>Proyects</div></Link>
                     <Link to="/notes"><FontAwesomeIcon className='icons' icon={faNoteSticky} /><div>Notes</div></Link>
                     <Link to="/goals"><FontAwesomeIcon className='icons' icon={faBullseye} /><div>Goals</div></Link>
-                    <Link to="/bin"><FontAwesomeIcon className='icons' icon={faTrash} /><div>Bin</div></Link>
                     <Link to="/calendary"><FontAwesomeIcon className='icons' icon={faCalendarDays} /><div>Calendary</div></Link>
                 </div>
                 <div className="group_links">
@@ -69,15 +56,6 @@ const Layout = () => {
             <main>
                 <Outlet />
             </main>
-            {
-                path !== "/dashboard" &&
-                path !== "/bin" &&
-                path !== "/goals" &&
-                path !== "/calendary" &&
-                <Button floated icon handle={() => navigate(`${path}/create${path.substring(0, 1)}`)}>
-                    <FontAwesomeIcon icon={faPlus} />
-                </Button>
-            }
         </div>
     );
 };
