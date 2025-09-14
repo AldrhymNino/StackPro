@@ -1,4 +1,3 @@
-export { NavWorkspace } from './NavWorkspace/NavWorkspace.jsx';
 export { Progressbar } from './Progressbar/Progressbar.jsx';
 export { CardDashboard } from './Card/Card.jsx';
 export { Search } from './Search/Search.jsx';

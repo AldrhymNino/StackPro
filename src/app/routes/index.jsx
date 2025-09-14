@@ -24,7 +24,7 @@ const AppRoutes = () => {
 
                 <Route path="/proyects" element={<Proyects/>} />
                 <Route path="/proyects/create" element={<Createproyect />} />
-                <Route path="/proyects/:proyectName" element={<Openproyects />} />
+                <Route path="/proyects/:proyectId" element={<Openproyects />} />
 
                 <Route path="/notes" element={<Notes/>} />
                 <Route path="/notes/create" element={<Createnote />} />

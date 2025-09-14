@@ -15,7 +15,7 @@ import { faPencil, faCheck } from "@fortawesome/free-solid-svg-icons";
 // Hooks
 import { useEffect, useRef, useState } from "react";
 
-const EditableInput = ({ type, name, placeholder, value, className}) => {
+const EditableInput = ({ type, name, placeholder, value, className, handleChange}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [valueInput, setValueInput] = useState(value || '');
   const inputRef = useRef(null);
@@ -50,7 +50,10 @@ const EditableInput = ({ type, name, placeholder, value, className}) => {
           <h2 className={className}>{valueInput}</h2>
         )
       }
-      <Button icon handle={toggleEditing}>
+      <Button icon handle={() => {
+          toggleEditing();
+          if (isEditing) handleChange(valueInput);
+        }}>
         <FontAwesomeIcon icon={isEditing ? faCheck : faPencil} size="lg" />
       </Button>
     </div>

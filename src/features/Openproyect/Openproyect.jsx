@@ -11,13 +11,14 @@ import { Task } from "./components/Task/Task.jsx";
 import styles from './openproyect.module.css';
 
 const Openproyect = () => {
-    const { proyectName } = useParams();
+    const { proyectId } = useParams();
     const {state, dispatch} = useStorageProyects();
 
-    const proyect = state.find(p => p.title === proyectName);
-    const { title, description, tasks } = proyect;
+    const proyect = state.find(p => p.id == proyectId);
 
     if (!proyect) return <div className="error">Project not found</div>;
+
+    const { title, description, tasks } = proyect;
 
     // Calcular progreso
     const totalTasks = proyect.tasks?.length || 0;
@@ -28,15 +29,19 @@ const Openproyect = () => {
         const updatedTasks = proyect.tasks.map(task => 
             task.id === id ? { ...task, done: !task.done } : task
         );
-
         const updatedproyect = { ...proyect, tasks: updatedTasks };
-
         dispatch({ type: 'update', payload: updatedproyect});
     }
 
+    const onChangeTitle = (newTitle) => {
+        const updatedproyect = { ...proyect, title: newTitle };
+        dispatch({ type: 'update', payload: updatedproyect });
+    };
+
+
     return (
         <div className={styles["container-open-proyect"]}>
-            <EditableInput className={styles['title']} value={title} name='title' type='text' placeholder='Nombre del proyecto' />
+            <EditableInput handleChange={onChangeTitle} className={styles['title']} value={title} name='title' type='text' placeholder='Nombre del proyecto' />
             <p className={styles['description']}>{description}</p>
             <Progressbar progress={progress} />
             <h2 className={styles['tasks-title']}>Tasks</h2>

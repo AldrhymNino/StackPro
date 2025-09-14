@@ -1,25 +1,51 @@
 // Components
-import { NavWorkspace, Progressbar } from '../../components';
+import { Button, Search } from '../../components';
+import { ProyectCard } from './components/proyectCard';
+
+// Icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faCircleXmark, faReplyAll, faSpinner } from '@fortawesome/free-solid-svg-icons';
+
 
 // Hooks
-import { useNavigate } from 'react-router-dom';
 import { useStorageProyects } from '../../service/useStorageProyects';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 // Styles
 import styles from './proyects.module.css';
 
 const Proyects = () => {
     const { state } = useStorageProyects();
+    const [ filterProyects, setFilterProyects ] = useState('all');
+    const location = useLocation();
     const navigate = useNavigate();
+    const path = location.pathname;
 
     const openProyect = (proyect) => {
-        navigate(`/proyects/${proyect.title}`);
+        navigate(`/proyects/${proyect.id}`);
     };
+
+    const handleFilter = (valueFilter) => {
+        setFilterProyects(valueFilter);
+    };
+
 
     return (
         <div className={styles["proyects"]}>
             <h1>Proyects</h1>
-            <NavWorkspace />
+            <div className={styles['nav-proyects']}>
+                <div className={styles['category-actions']}>
+                    <Button ghost handle={ () => handleFilter('done')}><FontAwesomeIcon className={styles['icon']} icon={faCheckCircle} /><div>Done</div></Button>
+                    <Button ghost handle={ () => handleFilter('progress')}><FontAwesomeIcon className={styles['icon']} icon={faSpinner} /> <div>In progress</div></Button>
+                    <Button ghost handle={ () => handleFilter('cancel')}><FontAwesomeIcon className={styles['icon']} icon={faCircleXmark} /> <div>Cancel</div></Button>
+                    <Button ghost handle={ () => handleFilter('all')}><FontAwesomeIcon className={styles['icon']} icon={faReplyAll} /> <div>All</div></Button>
+                </div>
+                <div className={styles['container-actions']}>
+                    <Search />
+                    <Button primary handle={() => navigate(`${path}/create`)}>New Proyect</Button>
+                </div>
+            </div>
             <div className={styles["proyects_list"]}>
                 {state && state.map(proyect => {
 
@@ -27,30 +53,18 @@ const Proyects = () => {
                     const completedTasks = proyect.tasks?.filter((t) => t.done).length || 0;
                     const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
 
-                    return (
-                        <div onClick={() => openProyect(proyect)} className={styles.card} key={proyect.id} role="article" aria-labelledby="projectTitle2">
-                            <header className={styles.cardHeader}>
-                                <h3 id="projectTitle2" className={styles.title}>{proyect.title}</h3>
-                                <span className={styles.badge} aria-label="plan">PRO</span>
-                            </header>
+                    if(filterProyects === 'all') {
+                        return <ProyectCard key={proyect.id} proyect={proyect} openProyect={openProyect} progress={progress} />;
+                    }
 
-                            <p className={styles.description}>
-                                {proyect.description}
-                            </p>
+                    if(filterProyects === 'done' && progress === 100) {
+                        return <ProyectCard key={proyect.id} proyect={proyect} openProyect={openProyect} progress={progress} />;
+                    }
 
-                            <Progressbar progress={progress} />
+                    if(filterProyects === 'progress' && progress < 100) {
+                        return <ProyectCard key={proyect.id} proyect={proyect} openProyect={openProyect} progress={progress} />;
+                    }
 
-                            <footer className={styles.cardFooter}>
-                                <span className={styles.meta}>
-                                <svg className={styles.icon} viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-                                    <rect x="3" y="4" width="18" height="16" rx="2" ry="2" fill="currentColor" opacity="0.15"></rect>
-                                    <path d="M8 2v4M16 2v4M3 8h18M5 12h4M11 12h4M17 12h2M5 16h4M11 16h4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"></path>
-                                </svg>
-                                <time dateTime="2024-07-01">Created: {proyect.created}</time>
-                                </span>
-                            </footer>
-                        </div>
-                    )
                 })}
             </div>
         </div>
