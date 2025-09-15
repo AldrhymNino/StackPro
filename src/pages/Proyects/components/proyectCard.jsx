@@ -7,7 +7,7 @@ const ProyectCard = ({ proyect, openProyect, progress }) => {
         <div onClick={() => openProyect(proyect)} className={styles.card} key={proyect.id} role="article" aria-labelledby="projectTitle2">
             <header className={styles.cardHeader}>
                 <h3 id="projectTitle2" className={styles.title}>{proyect.title}</h3>
-                <span className={styles.badge} aria-label="plan">{ progress < 100 ? 'Progress' : ' Done' }</span>
+                <span className={styles.badge} aria-label="plan">{ progress < 100 && progress > 2 ? 'Progress' : progress === 100 ? ' Done' : 'Creado' }</span>
             </header>
 
             <p className={styles.description}>

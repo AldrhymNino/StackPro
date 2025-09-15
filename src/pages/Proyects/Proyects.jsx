@@ -16,59 +16,84 @@ import { useState } from 'react';
 import styles from './proyects.module.css';
 
 const Proyects = () => {
-    const { state } = useStorageProyects();
-    const [ filterProyects, setFilterProyects ] = useState('all');
-    const location = useLocation();
-    const navigate = useNavigate();
-    const path = location.pathname;
+  const { state } = useStorageProyects();
+  const [filterProyects, setFilterProyects] = useState("all");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const path = location.pathname;
 
-    const openProyect = (proyect) => {
-        navigate(`/proyects/${proyect.id}`);
-    };
+  const openProyect = (proyect) => {
+    navigate(`/proyects/${proyect.id}`);
+  };
 
-    const handleFilter = (valueFilter) => {
-        setFilterProyects(valueFilter);
-    };
+  const handleFilter = (valueFilter) => {
+    setFilterProyects(valueFilter);
+  };
 
+  // 🔥 Generamos la lista filtrada antes del render
+  const filteredProyects = state
+    ?.map((proyect) => {
+      const totalTasks = proyect.tasks?.length || 0;
+      const completedTasks = proyect.tasks?.filter((t) => t.done).length || 0;
+      const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
 
-    return (
-        <div className={styles["proyects"]}>
-            <h1>Proyects</h1>
-            <div className={styles['nav-proyects']}>
-                <div className={styles['category-actions']}>
-                    <Button ghost handle={ () => handleFilter('done')}><FontAwesomeIcon className={styles['icon']} icon={faCheckCircle} /><div>Done</div></Button>
-                    <Button ghost handle={ () => handleFilter('progress')}><FontAwesomeIcon className={styles['icon']} icon={faSpinner} /> <div>In progress</div></Button>
-                    <Button ghost handle={ () => handleFilter('cancel')}><FontAwesomeIcon className={styles['icon']} icon={faCircleXmark} /> <div>Cancel</div></Button>
-                    <Button ghost handle={ () => handleFilter('all')}><FontAwesomeIcon className={styles['icon']} icon={faReplyAll} /> <div>All</div></Button>
-                </div>
-                <div className={styles['container-actions']}>
-                    <Search />
-                    <Button primary handle={() => navigate(`${path}/create`)}>New Proyect</Button>
-                </div>
-            </div>
-            <div className={styles["proyects_list"]}>
-                {state && state.map(proyect => {
+      return { ...proyect, progress, totalTasks, completedTasks };
+    })
+    ?.filter((proyect) => {
+      if (filterProyects === "all") return true;
+      if (filterProyects === "done") return proyect.completed;
+      if (filterProyects === "progress") return proyect.progress < 100 && proyect.progress > 0;
+      if (filterProyects === "cancel") return proyect.tasks?.length === 0; // ejemplo extra
+      return true;
+    });
 
-                    const totalTasks = proyect.tasks?.length || 0;
-                    const completedTasks = proyect.tasks?.filter((t) => t.done).length || 0;
-                    const progress = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+  return (
+    <div className={styles["proyects"]}>
+      <h1>Proyects</h1>
 
-                    if(filterProyects === 'all') {
-                        return <ProyectCard key={proyect.id} proyect={proyect} openProyect={openProyect} progress={progress} />;
-                    }
-
-                    if(filterProyects === 'done' && progress === 100) {
-                        return <ProyectCard key={proyect.id} proyect={proyect} openProyect={openProyect} progress={progress} />;
-                    }
-
-                    if(filterProyects === 'progress' && progress < 100) {
-                        return <ProyectCard key={proyect.id} proyect={proyect} openProyect={openProyect} progress={progress} />;
-                    }
-
-                })}
-            </div>
+      <div className={styles["nav-proyects"]}>
+        <div className={styles["category-actions"]}>
+          <Button ghost handle={() => handleFilter("done")}>
+            <FontAwesomeIcon className={styles["icon"]} icon={faCheckCircle} />
+            <div>Done</div>
+          </Button>
+          <Button ghost handle={() => handleFilter("progress")}>
+            <FontAwesomeIcon className={styles["icon"]} icon={faSpinner} />
+            <div>In progress</div>
+          </Button>
+          <Button ghost handle={() => handleFilter("cancel")}>
+            <FontAwesomeIcon className={styles["icon"]} icon={faCircleXmark} />
+            <div>Cancel</div>
+          </Button>
+          <Button ghost handle={() => handleFilter("all")}>
+            <FontAwesomeIcon className={styles["icon"]} icon={faReplyAll} />
+            <div>All</div>
+          </Button>
         </div>
-    )
+
+        <div className={styles["container-actions"]}>
+          <Search />
+          <Button primary handle={() => navigate(`${path}/create`)}>New Proyect</Button>
+        </div>
+      </div>
+
+      <div className={styles["proyects_list"]}>
+        {filteredProyects?.length > 0 ? (
+          filteredProyects.map((proyect) => (
+            <ProyectCard
+              key={proyect.id}
+              proyect={proyect}
+              openProyect={openProyect}
+              progress={proyect.progress}
+            />
+          ))
+        ) : (
+          <div className={styles["notProyect"]}>No hay proyectos.</div>
+        )}
+      </div>
+    </div>
+  );
 };
+
 
 export { Proyects };

@@ -29,7 +29,13 @@ const Openproyect = () => {
         const updatedTasks = proyect.tasks.map(task => 
             task.id === id ? { ...task, done: !task.done } : task
         );
+
         const updatedproyect = { ...proyect, tasks: updatedTasks };
+
+        const allTaskTrue = updatedTasks.every(task => task.done);
+
+        updatedproyect.completed = allTaskTrue;
+
         dispatch({ type: 'update', payload: updatedproyect});
     }
 

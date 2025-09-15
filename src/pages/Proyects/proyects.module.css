@@ -9,6 +9,10 @@
   padding: 1rem;
 }
 
+.proyects_list > .notProyect {
+  grid-column: 1 / -1;
+}
+
 /* Nav Bar */
 .nav-proyects {
     width: 100%;
@@ -37,4 +41,14 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+/* Not proyects */
+.notProyect {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--background2);
+    margin-top: 30px;
 }
