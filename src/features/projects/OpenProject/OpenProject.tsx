@@ -33,7 +33,7 @@ const OpenProject = () => {
   }
 
   // Calcular progreso
-  const completedTasks = project.tasks.filter((t) => t.completed).length ?? 0;
+  const completedTasks = project.tasks.filter((t) => t.done).length ?? 0;
   const totalTasks = project.tasks.length ?? 0;
   const progress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
 
@@ -42,10 +42,10 @@ const OpenProject = () => {
     if (!project.tasks) return;
 
     const updatedTasks = project.tasks.map((task) =>
-      task.id === taskId ? { ...task, completed: !task.completed } : task
+      task.id === taskId ? { ...task, completed: !task.done } : task
     );
 
-    const completedCount = updatedTasks.filter((t) => t.completed).length;
+    const completedCount = updatedTasks.filter((t) => t.done).length;
 
     const newStatus: Project['status'] =
       completedCount === updatedTasks.length ? 'done' : completedCount > 0 ? 'progress' : 'pending';

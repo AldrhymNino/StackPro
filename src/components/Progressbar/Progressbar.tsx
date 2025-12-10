@@ -6,8 +6,8 @@ type ProgressbarProps<t> = {
   list: t[];
 };
 
-const Progressbar = <T extends { completed: boolean }>({ list }: ProgressbarProps<T>) => {
-  const done = list.filter((item) => item.completed).length;
+const Progressbar = <T extends { done: boolean }>({ list }: ProgressbarProps<T>) => {
+  const done = list.filter((item) => item.done).length;
   const progress = (done / list.length) * 100;
 
   return (

@@ -32,12 +32,12 @@ const OpenRoadMap = () => {
       section: roadmap.section.map((sec) => {
         if (sec.id === secctionID) {
           const checkStep = sec.steps.map((step) =>
-            id === step.id ? { ...step, completed: !step.completed } : step
+            id === step.id ? { ...step, done: !step.done } : step
           );
 
-          const done = checkStep.every(({ completed }) => completed);
+          const done = checkStep.every(({ done }) => done);
 
-          return { ...sec, steps: checkStep, completed: done };
+          return { ...sec, steps: checkStep, done };
         }
         return sec;
       })
@@ -56,22 +56,22 @@ const OpenRoadMap = () => {
       </Button>
       <h1 className={styles.title}>{roadmap?.title}</h1>
       <div className={styles.sectionList}>
-        {roadmap.section.map(({ id: sectionID, title, description, steps, completed }) => (
+        {roadmap.section.map(({ id: sectionID, title, description, steps, done }) => (
           <div className={styles.section} key={sectionID}>
             <h2
               style={{
-                color: completed ? 'var(--success)' : 'var(--text)'
+                color: done ? 'var(--success)' : 'var(--text)'
               }}
             >
               {title}
             </h2>
-            <p style={{ color: completed ? 'var(--success)' : 'var(--text)' }}>{description}</p>
+            <p style={{ color: done ? 'var(--success)' : 'var(--text)' }}>{description}</p>
             <div className={styles.stepList}>
-              {steps.map(({ id: stepID, title, completed }) => (
+              {steps.map(({ id: stepID, title, done }) => (
                 <Step
                   key={stepID}
                   styles={styles}
-                  step={{ id: stepID, title, completed }}
+                  step={{ id: stepID, title, done }}
                   handleChange={() => handleChange(sectionID, stepID)}
                 />
               ))}

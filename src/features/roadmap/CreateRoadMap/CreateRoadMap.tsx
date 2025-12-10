@@ -25,7 +25,7 @@ const CreateRoadMap = () => {
       title: '',
       description: '',
       steps: [],
-      completed: false
+      done: false
     };
 
     setRoadmap({
@@ -48,7 +48,7 @@ const CreateRoadMap = () => {
     const newStep: RoadmapStep = {
       id: crypto.randomUUID(),
       title: '',
-      completed: false
+      done: false
     };
 
     setRoadmap((prev) => ({

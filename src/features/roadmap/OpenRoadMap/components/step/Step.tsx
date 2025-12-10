@@ -7,11 +7,11 @@ type StepsProps = {
 };
 
 const Step = ({ styles, step, handleChange }: StepsProps) => {
-  const { id, title, completed } = step;
+  const { id, title, done } = step;
   return (
     <div className={styles.step}>
-      <input type="checkbox" onChange={handleChange} checked={completed} id={id} />
-      <label style={{ color: completed ? 'var(--success)' : 'var(--text)' }} htmlFor={id}>
+      <input type="checkbox" onChange={handleChange} checked={done} id={id} />
+      <label style={{ color: done ? 'var(--success)' : 'var(--text)' }} htmlFor={id}>
         {title}
       </label>
     </div>

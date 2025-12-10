@@ -35,10 +35,10 @@ const Roadmap = () => {
       ) : (
         <ul className={styles.grid}>
           {roadmaps.map((rm) => {
-            const done = rm.section.filter((s) => s.completed).length;
+            const done = rm.section.filter((s) => s.done).length;
             const doneStep = rm.section.reduce(
               (acc, { steps }) => {
-                const completed = steps.filter((step) => step.completed).length;
+                const completed = steps.filter((step) => step.done).length;
 
                 acc.done += completed;
                 acc.length += steps.length;

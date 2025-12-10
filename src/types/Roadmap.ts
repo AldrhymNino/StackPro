@@ -9,14 +9,14 @@ type Roadmap = {
 type RoadmapStep = {
   id: string;
   title: string;
-  completed: boolean;
+  done: boolean;
 };
 
 type RoadmapSection = {
   id: string;
   title: string;
   description?: string;
-  completed: boolean;
+  done: boolean;
   steps: RoadmapStep[];
 };
 
