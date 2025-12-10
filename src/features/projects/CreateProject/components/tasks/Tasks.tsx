@@ -1,11 +1,12 @@
 import { CheckCircle2, Plus, StickyNote } from "lucide-react";
 import { useState } from "react";
+import type { task } from "../../../../../types/Project";
 
 type TasksProps = {
     styles: { [key: string]: string };
     state: {
-        tasks: { id: string; title: string; done: boolean }[];
-        setTasks: React.Dispatch<React.SetStateAction<{ id: string; title: string; done: boolean }[]>>;
+        tasks: task[];
+        setTasks: React.Dispatch<React.SetStateAction<task[]>>;
     }
 };
 

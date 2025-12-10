@@ -15,7 +15,7 @@ type ProjectStatus = 'done' | 'progress' | 'canceled' | 'pending';
 interface task {
   id: string;
   title: string;
-  completed: boolean;
+  done: boolean;
 }
 
 export type { Project, ProjectStatus, task };
