@@ -12,7 +12,7 @@ type TaskProps = {
 };
 
 const Task = ({ styles, task, handleChangeTask, handleDeleteTask, handleEditTask }: TaskProps) => {
-  const { completed, id, title } = task;
+  const { done, id, title } = task;
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(title);
 
@@ -31,13 +31,13 @@ const Task = ({ styles, task, handleChangeTask, handleDeleteTask, handleEditTask
     <li
       onClick={() => handleChangeTask(id)}
       key={id}
-      className={`${styles.task} ${completed ? styles.completed : ''}`}
+      className={`${styles.task} ${done ? styles.completed : ''}`}
     >
       <input
         className={styles.checkbox}
         id={`task${id}`}
         type="checkbox"
-        checked={completed}
+        checked={done}
         onChange={() => handleChangeTask(id)}
       />
 
