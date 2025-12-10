@@ -1,0 +1,58 @@
+.Tooltip {
+    width: max-content;
+    position: absolute;
+    background: var(--surface-alt);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(5px);
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    -o-transform: translateY(5px);
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+    -webkit-transition: opacity 0.2s ease, transform 0.2s ease;
+    -moz-transition: opacity 0.2s ease, transform 0.2s ease;
+    -ms-transition: opacity 0.2s ease, transform 0.2s ease;
+    -o-transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.Tooltip.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Types of Tooltip */
+.success, .primary, .secondary, .error {
+    color: var(--text-light);
+}
+
+.success {
+    background-color: var(--success);
+}
+
+.primary {
+    background-color: var(--primary);
+}
+
+.secondary {
+    background-color: var(--secondary);
+}
+
+.error {
+    background-color: var(--error);
+}
+
+.warning {
+    background-color: var(--warning);
+    color: var(--text-dark);
+}

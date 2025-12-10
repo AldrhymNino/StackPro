@@ -1,0 +1,46 @@
+:root {
+  --text-light: #f1f5f9;
+  --text-dark: #1e293b;
+}
+
+/* === Tema claro  === */
+.light {
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary: #64748b;
+  --success: #22c55e;
+  --warning: #eab308;
+  --error: #ef4444;
+  --info: #0ea5e9;
+
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+
+  --text: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  --border: #e2e8f0;
+}
+
+/* === Tema oscuro  === */
+.dark {
+  --primary: #60a5fa;
+  --primary-hover: #3b82f6;
+  --secondary: #94a3b8;
+  --success: #4ade80;
+  --warning: #facc15;
+  --error: #f87171;
+  --info: #38bdf8;
+
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-alt: #334155;
+
+  --text: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  --border: #334155;
+}

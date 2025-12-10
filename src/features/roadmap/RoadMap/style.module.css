@@ -1,0 +1,97 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--background-alt, #111);
+  padding: 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  border: 1px solid var(--border, #222);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cardDesc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.progress {
+  width: 100%;
+  height: 6px;
+  background: var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--success);
+  transition: width 0.25s ease;
+}
+
+.small {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.date {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.empty {
+  margin-top: 40px;
+  text-align: center;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.createInEmpty {
+  padding: 8px 14px;
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}

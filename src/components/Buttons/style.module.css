@@ -1,0 +1,83 @@
+.button {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.primary,
+.primary-icon {
+  background: var(--primary);
+  color: var(--text-light);
+  border-radius: var(--radius);
+  -webkit-border-radius: var(--radius);
+  -moz-border-radius: var(--radius);
+  -ms-border-radius: var(--radius);
+  -o-border-radius: var(--radius);
+}
+
+.error {
+  color: var(--text-light);
+  background-color: var(--error);
+}
+
+.primary-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-light);
+  background-color: var(--primary);
+}
+
+.primary-icon > svg {
+  margin-right: 10px;
+}
+
+.primary-icon:hover,
+.primary:hover {
+  background: var(--secondary);
+}
+
+.icon {
+  padding: 0;
+  --size: 30px;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--primary);
+  transition: var(--transition);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
+}
+
+.icon svg {
+  width: 60%;
+  height: 60%;
+}
+
+.icon:hover {
+  background: var(--secondary);
+  color: var(--surface);
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+}
+
+.notHover:hover {
+  background-color: transparent;
+  color: var(--text);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--text);
+}
