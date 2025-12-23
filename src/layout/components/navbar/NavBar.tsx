@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { FolderKanban, Home, Map, Settings, StickyNote, User2Icon } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './style.module.css';
 
 type NavBarProps = {
@@ -8,7 +8,6 @@ type NavBarProps = {
 };
 
 const NavBar = ({ isHidden }: NavBarProps) => {
-  const { pathname } = useLocation();
 
   const toggleHiddenClass = (className: string) =>
     clsx(styles[className], { [styles.hidden]: isHidden });
@@ -31,7 +30,6 @@ const NavBar = ({ isHidden }: NavBarProps) => {
           className={clsx(
             styles.link,
             { [styles.hidden]: isHidden },
-            { [styles.active]: pathname === to }
           )}
         >
           {icon}

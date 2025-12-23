@@ -1,0 +1,19 @@
+.card {
+    width: 100%;
+    background-color: var(--surface);
+    padding: 10px;
+    border-radius: var(--radius);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.2rem;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}

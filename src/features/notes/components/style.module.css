@@ -5,7 +5,7 @@
   color: var(--text);
   padding: 2rem;
   border-radius: 16px;
-  max-width: 95%;
+  width: 100%;
   margin: 2rem auto;
 }
 

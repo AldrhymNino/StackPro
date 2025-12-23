@@ -11,15 +11,21 @@
     -o-border-radius: var(--radius);
 }
 
-    .search input {
-        width: 100%;
-        height: 100%;
-        padding: 0 20px;
-        border-radius: var(--radius);
-        color: var(--text);
-        border: none;
-        -webkit-border-radius: var(--radius);
-        -moz-border-radius: var(--radius);
-        -ms-border-radius: var(--radius);
-        -o-border-radius: var(--radius);
+.search input {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    border-radius: var(--radius);
+    color: var(--text);
+    border: none;
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    -ms-border-radius: var(--radius);
+    -o-border-radius: var(--radius);
+}
+
+.search input::placeholder, .search input {
+    font-family: inherit;
+    font-weight: 100;
+    font-size: 1rem;
 }

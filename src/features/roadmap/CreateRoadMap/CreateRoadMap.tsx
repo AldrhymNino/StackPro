@@ -140,9 +140,6 @@ const CreateRoadMap = () => {
 
         <div className={styles.stepsHeader}>
           <h2 className={styles.subheading}>Pasos del Roadmap</h2>
-          <Button variant="primary-icon" type="button" onClick={addSection}>
-            <Plus /> <span>Añadir Sección</span>
-          </Button>
         </div>
 
         <div className={styles.sectionList}>
@@ -191,6 +188,10 @@ const CreateRoadMap = () => {
               </ul>
             </div>
           ))}
+          
+          <Button variant="primary-icon" type="button" onClick={addSection}>
+              <Plus /> <span>Añadir Sección</span>
+          </Button>
         </div>
 
         {/* Submit */}

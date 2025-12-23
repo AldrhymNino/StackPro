@@ -2,7 +2,6 @@
 
 .notesView {
   width: 100%;
-  max-width: 1200px;
   margin: 30px auto;
   display: flex;
   flex-direction: column;

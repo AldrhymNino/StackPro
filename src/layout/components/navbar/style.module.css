@@ -12,6 +12,7 @@
   padding: 10px;
   overflow: hidden;
   grid-area: navbar;
+  box-shadow: var(--shadowL);
 }
 
 /* Estado oculto */

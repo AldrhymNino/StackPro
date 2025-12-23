@@ -14,6 +14,8 @@ import { Deadline } from './components/deadline/Deadline';
 import { Description } from './components/description/Description';
 import { Tasks } from './components/tasks/Tasks';
 import { Title } from './components/title/Title';
+import { Button } from '../../../components/Buttons/Buttons';
+import { ArrowLeft } from 'lucide-react';
 
 export const CreateProject = () => {
   const [title, setTitle] = useState('');
@@ -48,6 +50,9 @@ export const CreateProject = () => {
 
   return (
     <div className={styles.container}>
+      <Button onClick={() => window.history.back()} variant="icon">
+        <ArrowLeft size={18} />
+      </Button>
       <h1 className={styles.title}>Crear nuevo proyecto</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <Title state={{ title, setTitle }} styles={styles} />

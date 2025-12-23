@@ -7,6 +7,7 @@
 :root {
   --radius: 10px;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadowL: 2px 10px 5px rgba(0, 0, 0, 0.08);
   /* --transition: 0.25s ease; */
 }
 
@@ -19,11 +20,11 @@
 
 /* Aplica la transición global a todos los elementos */
 html, body, * {
-   transition:width 0.4s ease ,background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-   -webkit-transition:width 0.4s ease ,background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-   -moz-transition:width 0.4s ease ,background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-   -ms-transition:width 0.4s ease ,background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
-   -o-transition:width 0.4s ease ,background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+   transition: all .25s ease-in-out;
+   -webkit-transition: all .25s ease-in-out;
+   -moz-transition: all .25s ease-in-out;
+   -ms-transition: all .25s ease-in-out;
+   -o-transition: all .25s ease-in-out;
 }
 
 html {

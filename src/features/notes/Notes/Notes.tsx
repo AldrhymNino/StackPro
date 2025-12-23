@@ -5,7 +5,7 @@ import { Search } from '../../../components/Search/Search';
 import { NoteCard } from './components/NoteCard/NoteCard';
 
 // icons
-import { Plus } from 'lucide-react';
+import { Plus, StickyNote } from 'lucide-react';
 
 // Styles
 import styles from './style.module.css';
@@ -16,6 +16,7 @@ import { useStorage } from '../../../hooks/useStorage';
 
 // types
 import type { Note } from '../../../types/Notes';
+import { Empy } from '../../../components/Empy/Empy';
 
 const Notes = () => {
   const [search, setSearch] = useState('');
@@ -40,8 +41,8 @@ const Notes = () => {
 
   return (
     <section className={styles.notesView}>
-      <h1>Tus notas</h1>
       <div className={styles.actionsGroup}>
+        <Search onChange={(e) => setSearch(e.target.value)} />
         <Button
           style={{
             backgroundColor: 'var(--primary)',
@@ -54,13 +55,12 @@ const Notes = () => {
         >
           <Plus size={24} />
         </Button>
-        <Search onChange={(e) => setSearch(e.target.value)} />
       </div>
       <div className={styles.notesGrid}>
         {filterRender().length === 0 && search ? (
-          <p className={styles.empty}>No hay notas disponibles con ese nombre.</p>
+          <Empy text='No hay proyectos disponibles con ese nombre.' icon={<StickyNote size={40}/>}/>
         ) : filterRender().length === 0 && search === '' ? (
-          <p className={styles.empty}>No hay notas aún...</p>
+          <Empy text='No hay proyectos disponibles.' icon={<StickyNote size={40}/>}/>
         ) : (
           filterRender().map((note) => (
             <NoteCard

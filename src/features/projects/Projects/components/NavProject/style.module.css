@@ -1,11 +1,15 @@
 .menu {
   display: flex;
   align-items: center;
-  background: var(--surface);
   border-radius: var(--radius);
-  padding: 8px;
+  margin-top: 20px;
+  /* padding: 8px; */
   gap: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.btn {
+  background: var(--surface);
 }
 
 .btn:hover {

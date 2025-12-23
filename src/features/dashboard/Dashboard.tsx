@@ -96,7 +96,7 @@ const Dashboard = () => {
       label: 'Configuración',
       icon: <Settings size={18} style={{ marginRight: 8 }} />,
       path: '/dashboard/settings'
-    }
+    },
   ];
 
   return (

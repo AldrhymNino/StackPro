@@ -19,33 +19,15 @@
 
 .grid {
   list-style: none;
-  padding: 0;
+  padding: 20px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 18px;
-}
-
-.card {
-  background: var(--background-alt, #111);
-  padding: 18px;
-  border-radius: 14px;
-  cursor: pointer;
-  border: 1px solid var(--border, #222);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: 0.25s;
 }
 
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.cardTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--text);
 }
 
 .cardDesc {
@@ -77,15 +59,6 @@
   opacity: 0.6;
 }
 
-.empty {
-  margin-top: 40px;
-  text-align: center;
-  opacity: 0.7;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-}
 
 .createInEmpty {
   padding: 8px 14px;

@@ -13,6 +13,7 @@ import type { Project, task } from '../../../types/Project';
 // Components
 import { Progressbar } from '../../../components/Progressbar/Progressbar';
 import { Task } from './components/task/Task';
+import { ArrowLeft } from 'lucide-react';
 
 const OpenProject = () => {
   const { state, dispatch } = useStorage<Project>('projects');
@@ -91,6 +92,9 @@ const OpenProject = () => {
 
   return (
     <div className={styles.openProject}>
+      <Button onClick={() => window.history.back()} variant="icon">
+        <ArrowLeft size={18} />
+      </Button>
       <header className={styles.header}>
         <div className={styles.titleSection}>
           <h1>{project.title}</h1>

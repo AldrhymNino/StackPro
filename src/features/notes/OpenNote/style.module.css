@@ -1,12 +1,11 @@
 .openNote {
   padding: 2rem;
-  max-width: 800px;
+  max-width: 1500px;
   margin: 0 auto;
-  background: var(--background);
+  background: var(--surface);
   color: var(--text);
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.3s ease;
 }
 
 .header {
@@ -51,13 +50,4 @@
   font-size: 1.2rem;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+

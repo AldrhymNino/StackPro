@@ -12,6 +12,7 @@ import { CalendarDays, CheckCircle, CheckCircle2, ClipboardList, ListTodo, Loade
 
 // Styles
 import styles from "./style.module.css";
+import { Card } from "../../../../../components/Card/Card";
 
 interface Props {
   project: Project;
@@ -46,7 +47,7 @@ const ProjectCard = ({ project }: Props) => {
 
 
   return (
-    <article  className={styles.card} onClick={() => navigate(`/dashboard/projects/${project.id}`)}>
+    <Card onClick={() => navigate(`/dashboard/projects/${project.id}`)}>
       <Tooltip variant={variant} show position={{ top: '10px', right: '10px' }}>
         {icon}
       </Tooltip>
@@ -80,7 +81,7 @@ const ProjectCard = ({ project }: Props) => {
           Creado el {new Date(project.createdAt).toLocaleDateString()}
         </small>
       </footer>
-    </article>
+    </Card>
   );
 };
 

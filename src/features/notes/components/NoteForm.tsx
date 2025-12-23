@@ -8,6 +8,8 @@ import type { Note } from '../../../types/Notes';
 // Styles
 import Markdown from 'react-markdown';
 import styles from './style.module.css';
+import { Button } from '../../../components/Buttons/Buttons';
+import { ArrowLeft } from 'lucide-react';
 
 // TypeProp
 export type Empty<T> = { [K in keyof T]: '' };
@@ -42,6 +44,9 @@ const NoteForm = ({ markdownState, noteState, saved, handleSubmit }: NoteFormPro
 
   return (
     <form className={styles.noteForm} onSubmit={handleSubmit}>
+      <Button onClick={() => window.history.back()} variant="icon">
+        <ArrowLeft size={18} />
+      </Button>
       <header className={styles.noteHeader}>
         <h2 className={styles.noteHeading}>🪶 Nueva nota</h2>
 

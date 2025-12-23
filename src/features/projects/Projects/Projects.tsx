@@ -4,6 +4,8 @@ import type { Project, ProjectStatus } from '../../../types/Project';
 import { NavProject } from './components/NavProject/NavProject';
 import { ProjectCard } from './components/ProjectCard/ProjectCard';
 import styles from './style.module.css';
+import { Empy } from '../../../components/Empy/Empy';
+import { FolderKanban } from 'lucide-react';
 
 export type Filter = 'all' | ProjectStatus;
 
@@ -34,9 +36,9 @@ const Projects = () => {
 
       <div className={styles.content}>
         {filterRender().length === 0 && inputValue ? (
-          <p style={{ textAlign: 'center' }}>No hay proyectos disponibles con ese nombre.</p>
+          <Empy text='No hay proyectos disponibles con ese nombre.' icon={<FolderKanban size={40} />}/>
         ) : filterRender().length === 0 && inputValue === '' ? (
-          <p style={{ textAlign: 'center' }}>No hay proyectos disponibles.</p>
+          <Empy text='No hay proyectos disponibles.' icon={<FolderKanban size={40} />}/>
         ) : (
           <div className={styles.container}>
             {filterRender().map((p) => (

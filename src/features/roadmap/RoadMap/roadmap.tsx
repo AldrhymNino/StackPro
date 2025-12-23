@@ -13,6 +13,8 @@ import { Button } from '../../../components/Buttons/Buttons';
 import { Progressbar } from '../../../components/Progressbar/Progressbar';
 import { Search } from '../../../components/Search/Search';
 import { useStorage } from '../../../hooks/useStorage';
+import { Empy } from '../../../components/Empy/Empy';
+import { Card } from '../../../components/Card/Card';
 
 const Roadmap = () => {
   const navigate = useNavigate();
@@ -28,12 +30,9 @@ const Roadmap = () => {
       </header>
 
       {roadmaps.length === 0 ? (
-        <div className={styles.empty}>
-          <Map size={40} />
-          <p>No has creado roadmaps aún.</p>
-        </div>
+        <Empy text='No has creado roadmaps aún.' icon={<Map size={40}/>}/>
       ) : (
-        <ul className={styles.grid}>
+        <div className={styles.grid}>
           {roadmaps.map((rm) => {
             const done = rm.section.filter((s) => s.done).length;
             const doneStep = rm.section.reduce(
@@ -51,12 +50,11 @@ const Roadmap = () => {
             const steps = rm.section.flatMap((sec) => sec.steps);
 
             return (
-              <li
+              <Card
                 key={rm.id}
-                className={styles.card}
                 onClick={() => navigate(`/dashboard/roadmaps/${rm.id}`)}
               >
-                <h2 className={styles.cardTitle}>{rm.title}</h2>
+                <h2>{rm.title}</h2>
                 <p className={styles.cardDesc}>{rm.description || 'Sin descripción'}</p>
 
                 <Progressbar<RoadmapStep> list={[...steps]} />
@@ -69,10 +67,10 @@ const Roadmap = () => {
                 <span className={styles.date}>
                   Creado el {new Date(rm.createdAt).toLocaleDateString('es-CO')}
                 </span>
-              </li>
+              </Card>
             );
           })}
-        </ul>
+        </div>
       )}
     </section>
   );

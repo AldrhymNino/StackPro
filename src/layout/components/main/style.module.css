@@ -1,5 +1,19 @@
 .main {
+  width: 100%;
   overflow: hidden auto;
   padding: 20px;
   grid-area: main;
+  border-radius: var(--radius);
+  animation: fadeIn .25s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
