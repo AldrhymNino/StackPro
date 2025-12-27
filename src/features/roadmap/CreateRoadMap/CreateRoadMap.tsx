@@ -151,13 +151,13 @@ const CreateRoadMap = () => {
                 name="title"
                 value={title}
                 placeholder="titulo de sección..."
-                onChange={(e) => updateSection(id, e.target.value.trim(), e.target.name)}
+                onChange={(e) => updateSection(id, e.target.value, e.target.name)}
               />
               <textarea
                 value={description}
                 name="description"
                 className={styles.textarea}
-                onChange={(e) => updateSection(id, e.target.value.trim(), e.target.name)}
+                onChange={(e) => updateSection(id, e.target.value, e.target.name)}
                 placeholder="Explica de qué trata esta sección del roadmap..."
               />
 

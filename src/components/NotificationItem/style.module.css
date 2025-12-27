@@ -1,0 +1,59 @@
+.notifi {
+
+    width: 100%;
+    max-width: 350px;
+    max-height: 100px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    padding: 12px 14px;
+    border-radius: 8px;
+
+    color: var(--text);
+    background: var(--surface);
+
+    box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+
+    transition:
+    transform 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out,
+    opacity 0.25s ease-in-out;
+}
+
+/* Hover sutil (desktop) */
+.notifi:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* Tipo de entidad */
+.notifi h2 {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.75;
+  margin: 0;
+}
+
+/* Título */
+.notifi h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Mensaje */
+.notifi p {
+  font-size: 13px;
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.4;
+}

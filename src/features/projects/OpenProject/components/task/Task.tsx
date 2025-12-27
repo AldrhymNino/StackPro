@@ -28,8 +28,10 @@ const Task = ({ styles, task, handleChangeTask, handleDeleteTask, handleEditTask
   };
 
   return (
-    <li
-      onClick={() => handleChangeTask(id)}
+    <div
+      onClick={() => {
+        handleChangeTask(id);
+      }}
       key={id}
       className={`${styles.task} ${done ? styles.completed : ''}`}
     >
@@ -38,7 +40,10 @@ const Task = ({ styles, task, handleChangeTask, handleDeleteTask, handleEditTask
         id={`task${id}`}
         type="checkbox"
         checked={done}
-        onChange={() => handleChangeTask(id)}
+        onChange={() => {
+          handleChangeTask(id);
+        }}
+        onClick={e => e.stopPropagation()}
       />
 
       {isEditing ? (
@@ -73,7 +78,7 @@ const Task = ({ styles, task, handleChangeTask, handleDeleteTask, handleEditTask
           <Trash2 size={16} />
         </Button>
       </div>
-    </li>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ type Action<T> =
   | { type: 'add' | 'remove' | 'update'; payload: T }
   | { type: 'clear'; payload?: null };
 
-type Key = 'notes' | 'projects' | 'roadmap';
+type Key = 'notes' | 'projects' | 'roadmap' | 'notifications';
 
 // 🔹 Hook principal genérico
 function useStorage<T extends { id: string }>(key: Key) {

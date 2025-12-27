@@ -13,9 +13,10 @@ import { GlobalSearch } from "../../../features/globalSearch/GlobalSeach";
 
 type HeaderProps = {
     handleMenu: () => void;
+    handleNoti: () => void;
 }
 
-const Header = ({ handleMenu }: HeaderProps) => {
+const Header = ({ handleMenu, handleNoti }: HeaderProps) => {
     const {theme, toggleTheme} = useTheme();
 
     const handleTheme = () => {
@@ -33,7 +34,7 @@ const Header = ({ handleMenu }: HeaderProps) => {
                 <Button variant="icon" className='btn' onClick={handleTheme}>
                     {theme === 'dark' ? <Sun/> : <Moon /> }
                 </Button>
-                <Button variant="icon" className="btn bell">
+                <Button variant="icon" className="btn bell" onClick={handleNoti}>
                     <Bell />
                 </Button>
             </div>

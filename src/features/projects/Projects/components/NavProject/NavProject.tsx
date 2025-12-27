@@ -21,14 +21,14 @@ type NavProjectProps = {
   };
 
   stateInput: {
-    inputValue: string;
-    setInputValue: Dispatch<SetStateAction<string>>;
+    keyword: string;
+    setKeyword: Dispatch<SetStateAction<string>>;
   };
 };
 
 const NavProject = ({ state, stateInput }: NavProjectProps) => {
   const { filter, setFilter } = state;
-  const { inputValue, setInputValue } = stateInput;
+  const { keyword, setKeyword } = stateInput;
   const navigate = useNavigate();
 
   const buttons = [
@@ -53,7 +53,7 @@ const NavProject = ({ state, stateInput }: NavProjectProps) => {
         </Button>
       ))}
       <div className={styles.last}>
-        <Search value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <Search value={keyword} onChange={(e) => setKeyword(e.target.value)} />
         <Button variant="primary" onClick={() => navigate('/dashboard/projects/create')}>
           New Project
         </Button>

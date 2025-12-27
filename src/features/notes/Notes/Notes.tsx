@@ -44,16 +44,10 @@ const Notes = () => {
       <div className={styles.actionsGroup}>
         <Search onChange={(e) => setSearch(e.target.value)} />
         <Button
-          style={{
-            backgroundColor: 'var(--primary)',
-            color: 'var(--text-light)',
-            width: '40px',
-            height: '40px'
-          }}
-          variant="icon"
+          variant="primary-icon"
           onClick={() => navigate('/dashboard/notes/create')}
         >
-          <Plus size={24} />
+          <Plus size={24} /> New Note
         </Button>
       </div>
       <div className={styles.notesGrid}>

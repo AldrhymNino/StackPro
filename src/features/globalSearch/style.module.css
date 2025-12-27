@@ -18,10 +18,12 @@
     z-index: 10; 
     overflow: hidden;
     visibility: hidden;
+    opacity: 0;
     transform: translateY(5px);
 }
 
 .listSearch.show {
+    opacity: 1;
     transform: translateY(-5px);
     visibility: visible;
 }

@@ -44,20 +44,16 @@
   background: var(--surface-alt);
 }
 
-.status[data-status='active'] {
+.status[data-status='progress'] {
   color: var(--primary);
 }
 
-.status[data-status='in-progress'] {
-  color: var(--warning);
-}
-
-.status[data-status='completed'] {
+.status[data-status='done'] {
   color: var(--success);
 }
 
 .status[data-status='pending'] {
-  color: var(--error);
+  color: var(--warning);
 }
 
 .deadline {

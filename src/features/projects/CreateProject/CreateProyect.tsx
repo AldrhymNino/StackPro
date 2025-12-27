@@ -16,6 +16,7 @@ import { Tasks } from './components/tasks/Tasks';
 import { Title } from './components/title/Title';
 import { Button } from '../../../components/Buttons/Buttons';
 import { ArrowLeft } from 'lucide-react';
+import { useProject } from '../hooks/useProject';
 
 export const CreateProject = () => {
   const [title, setTitle] = useState('');
@@ -23,29 +24,27 @@ export const CreateProject = () => {
   const [deadline, setDeadline] = useState('');
   const [tasks, setTasks] = useState<task[]>([]);
 
-  const { dispatch } = useStorage<Project>('projects');
+  const { addProject } = useProject();
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
+    
     e.preventDefault();
-    const newProject: Project = {
-      id: crypto.randomUUID(),
+    const newProject: Pick<Project, 'title' | 'description' | 'deadline' | 'tasks'> = {
       title,
       description,
       deadline,
       tasks,
-      createdAt: new Date().toISOString(),
-      updatedAt: '',
-      status: 'pending'
     };
 
-    dispatch({ type: 'add', payload: newProject });
+    addProject(newProject);
 
     setTitle('');
     setDescription('');
     setDeadline('');
     setTasks([]);
     navigate('/dashboard/projects');
+
   };
 
   return (
