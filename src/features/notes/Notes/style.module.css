@@ -67,6 +67,7 @@
   line-height: 1.4;
   flex: 1;
   margin-bottom: 1rem;
+  word-break: break-all;
 }
 
 .date {

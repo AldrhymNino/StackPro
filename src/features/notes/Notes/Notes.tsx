@@ -1,8 +1,8 @@
 // Components
-import { useState } from 'react';
 import { Button } from '../../../components/Buttons/Buttons';
 import { Search } from '../../../components/Search/Search';
 import { NoteCard } from './components/NoteCard/NoteCard';
+import { Empy } from '../../../components/Empy/Empy';
 
 // icons
 import { Plus, StickyNote } from 'lucide-react';
@@ -12,37 +12,25 @@ import styles from './style.module.css';
 
 // Hooks
 import { useNavigate } from 'react-router-dom';
-import { useStorage } from '../../../hooks/useStorage';
 
 // types
-import type { Note } from '../../../types/Notes';
-import { Empy } from '../../../components/Empy/Empy';
+import { useNote } from '../hooks/useNote';
 
 const Notes = () => {
-  const [search, setSearch] = useState('');
-  const { state: notes, dispatch: setNote } = useStorage<Note>('notes');
+  const { filteredNotes, removeNote, keyword, setKeyword } = useNote();
   const navigate = useNavigate();
-
-  const filterRender = () => {
-    const nt = notes;
-    const ntFilter = nt.filter(({ title }) => title.trim().toLowerCase().includes(search));
-    return ntFilter;
-  };
-
-  const handleDelete = (note: Note) => {
-    setNote({ type: 'remove', payload: note });
-  };
 
   const handleEdit = (id: string) => {
     navigate(`/dashboard/notes/edit/${id}`);
+    console.log(id);
   };
 
-  const handleOpen: (id: string) => void = (id) => navigate(`/dashboard/notes/${id}`);
+  const handleOpen = (id: string): void => { navigate(`/dashboard/notes/${id}`); };
 
   return (
     <section className={styles.notesView}>
       <div className={styles.actionsGroup}>
-        <Search onChange={(e) => setSearch(e.target.value)} />
+        <Search onChange={(e) => setKeyword(e.target.value)} />
         <Button
           variant="primary-icon"
           onClick={() => navigate('/dashboard/notes/create')}
@@ -51,16 +39,16 @@ const Notes = () => {
         </Button>
       </div>
       <div className={styles.notesGrid}>
-        {filterRender().length === 0 && search ? (
-          <Empy text='No hay proyectos disponibles con ese nombre.' icon={<StickyNote size={40}/>}/>
-        ) : filterRender().length === 0 && search === '' ? (
-          <Empy text='No hay proyectos disponibles.' icon={<StickyNote size={40}/>}/>
+        {filteredNotes.length === 0 && keyword ? (
+          <Empy text='No hay notas disponibles con ese nombre.' icon={<StickyNote size={40}/>}/>
+        ) : filteredNotes.length === 0 && keyword === '' ? (
+          <Empy text='No hay notas disponibles.' icon={<StickyNote size={40}/>}/>
         ) : (
-          filterRender().map((note) => (
+          filteredNotes.map((note) => (
             <NoteCard
               key={note.id}
               note={note}
-              onDelete={handleDelete}
+              onDelete={removeNote}
               onEdit={handleEdit}
               onOpen={handleOpen}
             />

@@ -1,27 +1,24 @@
 import Markdown from 'react-markdown';
 import { useParams } from 'react-router-dom';
-import { useStorage } from '../../../hooks/useStorage';
-import type { Note } from '../../../types/Notes';
 import styles from './style.module.css'; // opcional si quieres estilos
+import { useNote } from '../hooks/useNote';
 
 const OpenNote = () => {
   const { id } = useParams();
-  const { state } = useStorage<Note>('notes');
+  const { current } = useNote(id);
 
-  const note = state.find((n) => n.id === id);
-
-  if (!note) {
+  if (!current) {
     return <div className={styles.notFound}>Nota no encontrada 📝</div>;
   }
 
   return (
     <article className={styles.openNote}>
       <header className={styles.header}>
-        <h1>{note.title}</h1>
+        <h1>{current.title}</h1>
       </header>
 
       <section className={styles.content}>
-        <Markdown>{note.content}</Markdown>
+        <Markdown>{current.content}</Markdown>
       </section>
     </article>
   );

@@ -1,55 +1,39 @@
-import { useEffect, useState, type FormEvent } from 'react';
+import { useState, type FormEvent } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useStorage } from '../../../hooks/useStorage';
 import type { Note } from '../../../types/Notes';
 import { NoteForm } from '../components/NoteForm';
+import { useNote } from '../hooks/useNote';
 
 const EditNote = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { state: notes, dispatch } = useStorage<Note>('notes');
-  const [note, setNote] = useState<Note | null>(null);
-  const [saved, setSaved] = useState(false);
+  const { updateNote, current } = useNote(id);
+  const [note, setNote] = useState<Pick<Note, 'content' | 'title'> | null>({ content: current?.content || '', title: current?.title || '' });
   const [markdownMode, setMarkdownMode] = useState(false);
 
-  useEffect(() => {
-    const foundNote = notes.find((n) => String(n.id) === String(id)) || null;
-    setNote(foundNote);
-  }, [notes, id]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!note?.title.trim() && !note?.content.trim()) return;
+    if ((!note?.title.trim() && !note?.content.trim()) || !current) return;
 
     const newNote: Note = {
-      id: note?.id,
-      title: note?.title.trim() || 'Sin título',
-      content: note?.content.trim(),
-      updatedAt: new Date().toISOString(),
-      createdAt: note?.createdAt
+      ...current,
+      title: note.title.trim() || 'Sin título',
+      content: note.content.trim(),
     };
 
-    dispatch({ type: 'update', payload: newNote });
-
-    // feedback visual
-    setSaved(true);
-    setTimeout(() => {
-      setSaved(false);
-      navigate('/dashboard/notes');
-    }, 1500);
+    updateNote(newNote);
+    navigate('/dashboard/notes');
   };
 
-  console.log(id, note?.id, note, `Son iguales?: ${id === note?.id ? 'true' : 'false'}`);
-
-  if (!note) return <p style={{ textAlign: 'center' }}>Esta nota no existe</p>;
+  if (!current) return <p style={{ textAlign: 'center' }}>Esta nota no existe</p>;
 
   return (
     <NoteForm
       handleSubmit={handleSubmit}
       noteState={{ note, setNote }}
       markdownState={{ markdownMode, setMarkdownMode }}
-      saved={saved}
     />
   );
 };

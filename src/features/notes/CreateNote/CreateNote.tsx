@@ -1,16 +1,19 @@
-import { useState, type FormEvent } from 'react';
+// Hooks
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useStorage } from '../../../hooks/useStorage';
-import type { Note } from '../../../types/Notes';
-import { NoteForm, type Empty } from '../components/NoteForm';
+import { useNote } from '../hooks/useNote';
 
-const noteDefault: Empty<Note> = { id: '', content: '', title: '', createdAt: '', updatedAt: '' };
+// Components
+import { NoteForm } from '../components/NoteForm';
+
+// Types
+import type { Note } from '../../../types/Notes';
+import type { FormEvent } from 'react';
 
 const CreateNote = () => {
   const navigate = useNavigate();
-  const { dispatch } = useStorage<Note>('notes');
-  const [note, setNote] = useState<Note | typeof noteDefault | null>(noteDefault);
-  const [saved, setSaved] = useState(false);
+  const { addNote } = useNote();
+  const [note, setNote] = useState<Pick<Note, 'content' | 'title'> | null>({ content: '', title: '' });
   const [markdownMode, setMarkdownMode] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -18,22 +21,13 @@ const CreateNote = () => {
 
     if (!note?.title.trim() && !note?.content.trim()) return;
 
-    const newNote: Note = {
-      id: crypto.randomUUID(),
+    const newNote: Pick<Note, 'title' | 'content'> = {
       title: note.title.trim() || 'Sin título',
       content: note.content.trim(),
-      createdAt: note.createdAt ? note.createdAt : new Date().toISOString(),
-      updatedAt: ''
     };
 
-    dispatch({ type: 'add', payload: newNote });
-
-    // feedback visual
-    setSaved(true);
-    setTimeout(() => {
-      setSaved(false);
-      navigate('/dashboard/notes');
-    }, 1500);
+    addNote(newNote);
+    navigate('/dashboard/notes');
   };
 
   return (
@@ -41,7 +35,6 @@ const CreateNote = () => {
       handleSubmit={handleSubmit}
       noteState={{ note, setNote }}
       markdownState={{ markdownMode, setMarkdownMode }}
-      saved={saved}
     />
   );
 };

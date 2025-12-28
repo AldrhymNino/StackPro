@@ -89,7 +89,7 @@ const useProject = (id?: string) => {
     addProject, 
     updateProject, 
     removeProject, 
-    currentProject: getProject()
+    currentProject: id ? getProject() : null,
   };
 }
 
