@@ -1,7 +1,6 @@
 // Hooks
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useStorage } from '../../../hooks/useStorage';
 
 // Styles
 import styles from './style.module.css';

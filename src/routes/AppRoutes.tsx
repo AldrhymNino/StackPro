@@ -4,7 +4,7 @@ import { CreateNote } from '../features/notes/CreateNote/CreateNote';
 import { EditNote } from '../features/notes/EditNote/EditNote';
 import { Notes } from '../features/notes/Notes/Notes';
 import { OpenNote } from '../features/notes/OpenNote/OpenNote';
-import { CreateProject } from '../features/projects/CreateProject/CreateProyect';
+import { CreateProject } from '../features/projects/CreateProject/CreateProject';
 import { OpenProject } from '../features/projects/OpenProject/OpenProject';
 import { Projects } from '../features/projects/Projects/Projects';
 import { CreateRoadMap } from '../features/roadmap/CreateRoadMap/CreateRoadMap';
