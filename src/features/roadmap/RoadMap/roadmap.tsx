@@ -5,35 +5,35 @@ import styles from './style.module.css';
 import { useNavigate } from 'react-router-dom';
 
 // types
-import type { RoadmapStep, Roadmap as RoadmapType } from '../../../types/Roadmap';
+import type { RoadmapStep } from '../../../types/Roadmap';
 
 // icons
 import { Map, Plus } from 'lucide-react';
 import { Button } from '../../../components/Buttons/Buttons';
 import { Progressbar } from '../../../components/Progressbar/Progressbar';
 import { Search } from '../../../components/Search/Search';
-import { useStorage } from '../../../hooks/useStorage';
 import { Empy } from '../../../components/Empy/Empy';
 import { Card } from '../../../components/Card/Card';
+import { useRoadMap } from '../hooks/useRoadMap';
 
 const Roadmap = () => {
   const navigate = useNavigate();
-  const { state: roadmaps } = useStorage<RoadmapType>('roadmap');
+  const { filteredRoadmaps, keyword, setKeyword } = useRoadMap();
 
   return (
     <section className={styles.wrapper}>
       <header className={styles.header}>
-        <Search />
+        <Search value={keyword} onChange={(e) => setKeyword(e.target.value)} />
         <Button variant="primary-icon" onClick={() => navigate('/dashboard/roadmaps/create')}>
           <Plus size={18} /> Nuevo roadmap
         </Button>
       </header>
 
-      {roadmaps.length === 0 ? (
+      {filteredRoadmaps.length === 0 ? (
         <Empy text='No has creado roadmaps aún.' icon={<Map size={40}/>}/>
       ) : (
         <div className={styles.grid}>
-          {roadmaps.map((rm) => {
+          {filteredRoadmaps.map((rm) => {
             const done = rm.section.filter((s) => s.done).length;
             const doneStep = rm.section.reduce(
               (acc, { steps }) => {

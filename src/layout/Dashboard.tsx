@@ -17,7 +17,7 @@ import styles from './style.module.css';
 const Dashboard = () => {
   const [isHidden, setIsHidden] = useState(true);
   const [showNoti, setShowNoti] = useState(false);
-  const { current } = useNotification();
+  const { current, close } = useNotification();
 
   const location = useLocation();
 
@@ -47,7 +47,7 @@ const Dashboard = () => {
 
         <Modal>
           {current && current.map((noti) => (
-            <NotificationItem key={noti.id} {...noti} />
+            <NotificationItem handle={() => close(noti.id)} key={noti.id} {...noti} />
           ))}
         </Modal>
 

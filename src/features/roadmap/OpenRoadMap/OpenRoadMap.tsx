@@ -1,7 +1,5 @@
 // Hooks
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useStorage } from '../../../hooks/useStorage';
 
 // types
 import type { Roadmap } from '../../../types/Roadmap';
@@ -10,19 +8,16 @@ import type { Roadmap } from '../../../types/Roadmap';
 import styles from './style.module.css';
 
 // Component
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Check, Trash } from 'lucide-react';
 import { Button } from '../../../components/Buttons/Buttons';
 import { Step } from './components/step/Step';
+import { useRoadMap } from '../hooks/useRoadMap';
+import { useState } from 'react';
 
 const OpenRoadMap = () => {
   const { id } = useParams();
-  const { state: roadmaps, dispatch } = useStorage<Roadmap>('roadmap');
-  const [roadmap, setRoadMap] = useState<Roadmap>();
-
-  useEffect(() => {
-    const rmp = roadmaps.find((r) => r.id === id);
-    setRoadMap(rmp);
-  }, [roadmaps]);
+  const { updateRoadMap, current, removeRoadMap } = useRoadMap(id);
+  const [roadmap, setRoadMap] = useState<Roadmap | null>(current);
 
   if (!roadmap) return <div>No existe este RoadMap...</div>;
 
@@ -44,7 +39,6 @@ const OpenRoadMap = () => {
     };
 
     setRoadMap((prev) => {
-      dispatch({ type: 'update', payload: { ...rmpOB } });
       return { ...prev, ...rmpOB };
     });
   };
@@ -78,6 +72,14 @@ const OpenRoadMap = () => {
             </div>
           </div>
         ))}
+        <div className={styles.actionsGroup}>
+          <Button onClick={() => updateRoadMap(roadmap)}  variant='primary-icon' >
+            <Check /> <span>Guardar</span>
+          </Button>
+          <Button onClick={() => removeRoadMap(roadmap)} style={{background: 'var(--error)'}}  variant='primary-icon' >
+            <Trash /> <span>Eliminar</span>
+          </Button>
+        </div>
       </div>
     </div>
   );

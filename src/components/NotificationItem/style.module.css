@@ -4,6 +4,8 @@
     max-width: 350px;
     max-height: 100px;
 
+    position: relative;
+
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -22,14 +24,6 @@
     transform 0.25s ease-in-out,
     box-shadow 0.25s ease-in-out,
     opacity 0.25s ease-in-out;
-}
-
-/* Hover sutil (desktop) */
-.notifi:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.12),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
 /* Tipo de entidad */

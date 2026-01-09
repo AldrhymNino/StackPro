@@ -7,6 +7,8 @@ type NotificationContextType = {
   current: Notification[];
   add: (input: AddNotificationInput) => void;
   saved: Notification[];
+  close: (id: string) => void;
+  remove: (noti: Notification) => void;
 };
 
 type AddNotificationInput = {
@@ -23,7 +25,7 @@ type AddNotificationInput = {
 const NotificationContext = createContext<NotificationContextType | null>(null);
 
 export const NotificationProvider = ({ children }: { children: React.ReactNode }) => {
-  const { state, dispatch} = useStorage<Notification>('notifications');
+  const { state, dispatch } = useStorage<Notification>('notifications');
   const [current, setCurrent] = useState<Notification[]>([]);
 
   const { play } = useSound('/sounds/notification.mp3', {
@@ -57,9 +59,12 @@ export const NotificationProvider = ({ children }: { children: React.ReactNode }
     play();
   };
 
+  const close = (id: string) => setCurrent(current.filter(n => n.id !== id));
+
+  const remove = (noti: Notification) => dispatch({type: 'remove', payload: noti}); 
 
   return (
-    <NotificationContext.Provider value={{ current, add,  saved: state }}>
+    <NotificationContext.Provider value={{ current, add,  close, remove, saved: state }}>
       {children}
     </NotificationContext.Provider>
   );

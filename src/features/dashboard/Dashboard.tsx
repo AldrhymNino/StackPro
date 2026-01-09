@@ -1,4 +1,4 @@
-// DashboardHome.tsx
+// Components
 import {
   CheckCircle,
   ClipboardList,
@@ -11,20 +11,23 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Buttons/Buttons';
-import { useStorage } from '../../hooks/useStorage';
+
+// Styles
 import styles from './style.module.css';
 
 // Type
-import type { Project } from '../../types/Project';
-import type { Roadmap } from '../../types/Roadmap';
+import { useProject } from '../projects/hooks/useProject';
+import { useNote } from '../notes/hooks/useNote';
+import { useRoadMap } from '../roadmap/hooks/useRoadMap';
 
 const Dashboard = () => {
-  const { state: project } = useStorage<Project>('projects');
-  const { state: roadmap } = useStorage<Roadmap>('roadmap');
+  const { projects } = useProject();
+  const { notes } = useNote();
+  const { roadmaps } = useRoadMap();
   const navigate = useNavigate();
 
   // Contar los proyectos por estado
-  const statsProject = project.reduce(
+  const statsProject = projects.reduce(
     (acc, project) => {
       switch (project.status) {
         case 'done':
@@ -46,6 +49,12 @@ const Dashboard = () => {
 
   const stats = [
     {
+      title: 'Total de Proyectos',
+      value: projects.length,
+      icon: <ClipboardList />,
+      color: 'var(--primary)'
+    },
+    {
       title: 'Proyectos En progreso',
       value: statsProject.progreso,
       icon: <Loader2 />,
@@ -64,11 +73,17 @@ const Dashboard = () => {
       color: 'var(--warning)'
     },
     {
+      title: 'Notas',
+      value: notes.length,
+      icon: <StickyNote />,
+      color: 'var(--error)'
+    },
+    {
       title: 'Roadmaps',
-      value: roadmap.length,
+      value: roadmaps.length,
       icon: <MapIcon />,
       color: 'var(--secondary)'
-    }
+    },
   ];
 
   const actions = [
@@ -101,7 +116,6 @@ const Dashboard = () => {
 
   return (
     <>
-      <h2>Dashboard</h2>
       <section className={styles.dashboardHome}>
         {stats.map((stat, i) => (
           <div key={i} className={styles.card}>
@@ -121,7 +135,7 @@ const Dashboard = () => {
           </div>
         ))}
       </section>
-
+      <section className={styles.containerHistory}></section>
       <section className={styles.divider}>
         <h2>¿Qué quieres hacer hoy?</h2>
         <div className={styles.buttonContainer}>

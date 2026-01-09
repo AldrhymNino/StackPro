@@ -2,6 +2,7 @@
   width: auto;
   margin: auto;
   padding: 20px;
+  position: relative;
   /* background-color: var(--surface); */
   border-radius: var(--radius);
   -webkit-border-radius: var(--radius);
@@ -80,4 +81,10 @@
 
 .step input:checked {
   accent-color: var(--success);
+}
+
+.actionsGroup {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

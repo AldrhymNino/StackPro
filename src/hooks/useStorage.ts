@@ -1,9 +1,10 @@
 import { useEffect, useReducer } from 'react';
 
 // 🔹 Tipo genérico de acción
-type Action<T> =
-  | { type: 'add' | 'remove' | 'update'; payload: T }
-  | { type: 'clear'; payload?: null };
+type Action<T> = {
+  type: 'add' | 'remove' | 'update'; 
+  payload: T;
+};
 
 type Key = 'notes' | 'projects' | 'roadmap' | 'notifications';
 
@@ -19,9 +20,6 @@ function useStorage<T extends { id: string }>(key: Key) {
 
       case 'update':
         return state.map((item) => (item.id === payload.id ? { ...item, ...payload } : item));
-
-      case 'clear':
-        return [];
 
       default:
         return state;
