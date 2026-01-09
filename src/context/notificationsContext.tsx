@@ -28,7 +28,7 @@ export const NotificationProvider = ({ children }: { children: React.ReactNode }
   const { state, dispatch } = useStorage<Notification>('notifications');
   const [current, setCurrent] = useState<Notification[]>([]);
 
-  const { play } = useSound('/sounds/notification.mp3', {
+  const { play } = useSound('/public/sounds/notification.mp3', {
     volume: 0.6,
   });
 
