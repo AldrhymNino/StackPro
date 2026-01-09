@@ -28,7 +28,7 @@ export const NotificationProvider = ({ children }: { children: React.ReactNode }
   const { state, dispatch } = useStorage<Notification>('notifications');
   const [current, setCurrent] = useState<Notification[]>([]);
 
-  const { play } = useSound('/public/sounds/notification.mp3', {
+  const { play } = useSound('/sounds/notification.mp3', {
     volume: 0.6,
   });
 
@@ -59,7 +59,8 @@ export const NotificationProvider = ({ children }: { children: React.ReactNode }
     play();
   };
 
-  const close = (id: string) => setCurrent(current.filter(n => n.id !== id));
+  const close = (id: string) => setCurrent(prev => prev.filter(n => n.id !== id));
+
 
   const remove = (noti: Notification) => dispatch({type: 'remove', payload: noti}); 
 
