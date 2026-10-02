@@ -1,0 +1,77 @@
+.tooltip {
+    width: max-content;
+    position: absolute;
+    background: var(--surface-alt);
+    color: var(--text);
+    padding: 5px 15px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 5;
+    box-shadow: var(--shadow-sm);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: translateY(5px);
+    -webkit-transform: translateY(5px); 
+    -moz-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    -o-transform: translateY(5px);
+    -webkit-border-radius: var(--radius-sm);
+    -moz-border-radius: var(--radius-sm);
+    -ms-border-radius: var(--radius-sm);
+    -o-border-radius: var(--radius-sm);
+    -webkit-transition: opacity 0.2s ease, transform 0.2s ease;
+    -moz-transition: opacity 0.2s ease, transform 0.2s ease;
+    -ms-transition: opacity 0.2s ease, transform 0.2s ease;
+    -o-transition: opacity 0.2s ease, transform 0.2s ease;
+    --levelTransparent: 10%;
+}
+
+.tooltip.show {
+    opacity: 1;
+    transform: translateY(0);;
+}
+
+.tooltip.static {
+    position: static;
+    transform: none;
+    opacity: 1;
+    box-shadow: none;
+}
+
+/* Types of Tooltip */
+.success, .primary, .secondary, .error {
+    color: var(--text-light);
+    
+}
+
+.success {
+    background-color: color-mix(in srgb, var(--success) var(--levelTransparent), transparent);
+    border: 1px solid color-mix(in srgb, var(--success) var(--levelTransparent), transparent);
+    color: var(--success);
+}
+
+.primary {
+    background-color: color-mix(in srgb, var(--primary) var(--levelTransparent), transparent);
+    border: 1px solid color-mix(in srgb, var(--primary) var(--levelTransparent), transparent);
+    color: var(--primary);
+}
+
+.secondary {
+    background-color: color-mix(in srgb, var(--secondary) var(--levelTransparent), transparent);
+    border: 1px solid color-mix(in srgb, var(--secondary) var(--levelTransparent), transparent);
+    color: var(--secondary);
+}
+
+.error {
+    background-color: color-mix(in srgb, var(--error) var(--levelTransparent), transparent);
+    border: 1px solid color-mix(in srgb, var(--error) var(--levelTransparent), transparent);
+    color: var(--error);
+}
+
+.warning {
+    color: var(--warning);
+    background-color: color-mix(in srgb, var(--warning) var(--levelTransparent), transparent);
+    border: 1px solid color-mix(in srgb, var(--warning) var(--levelTransparent), transparent);
+    color: var(--warning);
+}

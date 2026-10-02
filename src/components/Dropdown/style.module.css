@@ -1,0 +1,222 @@
+
+.dropDown {
+  width: 100px;
+  position: relative;
+
+  & button {
+    width: 100px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    & > div > svg {
+
+      flex-shrink: 0;
+    }
+
+    & > div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: 1;
+
+      text-align: center;
+    }
+
+    & > div > span {
+      translate: 0 -1.5px;
+    }
+  }
+
+  .dropDownOptions {
+    position: absolute;
+    z-index: 1000;
+
+    width: 100px;
+
+    background-color: var(--surface);
+    padding: 5px;
+
+    border-radius: var(--radius);
+    border: solid var(--border) 1px;
+
+    box-shadow: var(--shadow-lg);
+
+    &::before,
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      width: 10px;
+      height: 10px;
+
+      border: transparent 10px solid;
+    }
+
+    /* Triángulo interior */
+    &::before {
+      z-index: 2;
+    }
+
+    /* Borde del triángulo */
+    &::after {
+      z-index: 1;
+
+      border-width: 11.5px;
+    }
+
+    /* ---------------- */
+    /*      BOTTOM      */
+    /* ---------------- */
+
+    &.bottom {
+      top: 50px;
+
+      &::before {
+        top: -20px;
+        left: calc(50% - 10px);
+
+        border-bottom-color: var(--surface);
+      }
+
+      &::after {
+        top: -23px;
+        left: calc(50% - 11.5px);
+
+        border-bottom-color: var(--border);
+      }
+    }
+
+    /* ---------------- */
+    /*       LEFT       */
+    /* ---------------- */
+
+    &.left {
+      top: -5px;
+      left: -115%;
+
+      &::before {
+        top: 10px;
+        left: 100%;
+
+        border-color: transparent;
+        border-left-color: var(--surface);
+      }
+
+      &::after {
+        top: 8px;
+        left: calc(100% + 0.2px);
+
+        border-width: 12px;
+
+        border-color: transparent;
+        border-left-color: var(--border);
+      }
+    }
+
+    /* ---------------- */
+    /*       TOP        */
+    /* ---------------- */
+
+    &.top {
+      bottom: calc(100% + 15px);
+
+      &::before {
+        top: 100%;
+        left: calc(50% - 10px);
+
+        border-color: transparent;
+        border-top-color: var(--surface);
+      }
+
+      &::after {
+        top: calc(100% - 1.5px);
+        left: calc(50% - 11.5px);
+
+        border-color: transparent;
+        border-top-color: var(--border);
+      }
+    }
+
+    /* ---------------- */
+    /*      RIGHT       */
+    /* ---------------- */
+
+    &.right {
+      top: -5px;
+      left: calc(100% + 15px);
+
+      &::before {
+        top: 10px;
+        right: 100%;
+
+        border-color: transparent;
+        border-right-color: var(--surface);
+      }
+
+      &::after {
+        top: 8.5px;
+        right: 100%;
+
+        border-color: transparent;
+        border-right-color: var(--border);
+      }
+    }
+  }
+
+  .dropDownOption {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 5px 10px;
+
+    border: none;
+    border-radius: var(--radius);
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+
+    text-align: center;
+
+    &:hover {
+      background-color: var(--secondary-soft);
+    }
+
+    & svg {
+      width: 10px;
+      height: 10px;
+
+      flex-shrink: 0;
+
+      fill: currentColor;
+      stroke: currentColor;
+    }
+
+    & div {
+      display: flex;
+      align-items: center;
+
+      line-height: 1;
+    }
+  }
+}

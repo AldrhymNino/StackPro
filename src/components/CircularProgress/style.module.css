@@ -1,0 +1,22 @@
+/* style.module.css */
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backgroundCircle {
+  stroke: var(--border);
+}
+
+.progressCircle {
+  stroke: var(--success);
+}
+
+.percentage {
+  position: absolute;
+  font-size: 0.9rem;
+  font-weight: 600;
+}

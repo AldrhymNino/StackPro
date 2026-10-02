@@ -1,0 +1,52 @@
+.header {
+  min-width: 0;
+}
+
+.header > .title,
+.header > .description {
+  overflow-wrap: anywhere;
+}
+
+.header > .title {
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.header > .description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text);
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer {
+  font-family: var(--font-mono);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--success);
+}

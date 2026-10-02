@@ -1,0 +1,26 @@
+.editableTextContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+
+    .editableTextInput {
+        width: 100%;
+        padding: 4px 45px 4px 4px;
+        border-bottom: 1px solid #ccc;
+        /* border-radius: var(--radius-sm); */
+    }
+
+    .tooltip {
+        font-family: var(--font-mono);
+        width: max-content;
+        font-size: 0.7rem;
+        height: 15px;
+        background-color: transparent;
+        position: absolute;
+        padding: 0 5px;
+        right: 40px;
+        bottom: 3px;
+    }
+}

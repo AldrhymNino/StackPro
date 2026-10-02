@@ -1,0 +1,40 @@
+.menu {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius);
+  margin-top: 20px;
+  padding: 8px;
+  background: var(--surface);
+  gap: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.btn {
+  background: var(--surface);
+}
+
+.btn:hover {
+  background: var(--surface-alt);
+  color: var(--text);
+  transform: scale(1.05);
+}
+
+.btn svg {
+  flex-shrink: 0;
+}
+
+.active, .active:hover {
+  background: var(--primary) !important;
+  color: var(--text-light);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+
+.last {
+  display: flex;
+  margin-left: auto;
+}
+
+.last > button {
+  margin-left: 20px;
+}

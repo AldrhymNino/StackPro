@@ -1,0 +1,56 @@
+.globalSearch {
+    width: 100%;
+    max-width: max-content;
+    position: relative;
+}
+
+.searchInput {
+    height: 30px;
+}
+
+.listSearch {
+    width: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    position: absolute;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    top: 60px;
+    right: -400px;
+    box-shadow: var(--shadow);
+    z-index: 10; 
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+.listSearch.show {
+    opacity: 1;
+    transform: translateY(-5px);
+    visibility: visible;
+}
+
+.itemSearch {
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 100;
+    width: 100%;
+    padding: 20px;
+    font-size: 0.7rem;
+    text-align: justify;
+    cursor: pointer;
+}
+
+.itemSearch h4 {
+    font-size: 0.9rem;
+    font-weight: 100;
+}
+
+.itemSearch:hover {
+    opacity: .6;
+}

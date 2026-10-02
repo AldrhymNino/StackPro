@@ -1,0 +1,70 @@
+.themeButton {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px 20px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background: var(--surface-alt);
+  color: var(--text);
+}
+
+.hidden {
+  width: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+.toggleButton {
+  position: relative;
+
+  width: 30px;
+  min-width: 30px;
+  height: 16px;
+  min-height: 16px;
+
+  padding: 0;
+
+  border-radius: 999px;
+
+  background: var(--secondary-hover);
+}
+
+.toggleCircle {
+  position: absolute;
+  top: -2px;
+  left: 0;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--text-muted);
+  color: var(--surface);
+
+  transition: background var(--transition);
+}
+
+.toggleCircle:hover {
+  background-color: var(--info);
+}
+
+.toggleCircle svg {
+  width: 80%;
+  height: 80%;
+
+  fill: var(--surface);
+  stroke: var(--surface);
+}

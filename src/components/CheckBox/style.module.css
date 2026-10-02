@@ -1,0 +1,47 @@
+.checkbox {
+  position: relative;
+
+  width: 18px;
+  height: 18px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  cursor: pointer;
+}
+
+.checkbox input {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  border: 2px solid #999;
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.checkbox input:checked {
+  background: #000;
+  border-color: #000;
+}
+
+.checkbox span {
+  position: relative;
+
+  z-index: 1;
+
+  color: white;
+  font-size: 12px;
+  line-height: 1;
+
+  pointer-events: none;
+}

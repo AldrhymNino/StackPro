@@ -1,0 +1,268 @@
+/* Open Project */
+.openProject {
+  height: 100%;
+  --padding-cuadrilla: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top Bar */
+.topbar {
+  background-color: var(--surface);
+  width: 100%;
+  padding: 10px;
+  height: 60px;
+  border-bottom: solid 1px var(--border);
+  display: flex;
+  justify-content: space-between;
+
+  .group {
+    display: flex;
+    gap: 15px;
+  }
+}
+
+/* Wrapper */
+.wrapper {
+  height: calc(100% - 60px);
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr 120px 1fr 1fr;
+  padding: var(--padding-cuadrilla);
+}
+
+/* Head Project */
+.headProject {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+
+  /* Project Icon */
+  .projectIcon {
+    background-color: var(--surface-alt);
+    border-radius: var(--radius);
+    padding: 5px;
+  }
+
+  /* Project Info Container */
+  .projectInfoContainer {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    padding: 0 10px;
+
+    /* Small Info Project */
+    .smallInfoProject {
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 20px;
+
+      /* Deadline Project */
+      .deadlineProject {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+    }
+  }
+}
+
+/* Info Project */
+.infoProject {
+  width: 100%;
+  /* height: 70%; */
+  border-radius: var(--radius);
+  display: flex;
+  flex-flow: row nowrap;
+  gap: clamp(5px, 5vw, var(--padding-cuadrilla));
+  justify-content: space-between;
+  align-items: center;
+
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+
+  & .sectionProgress,
+  .sectionTask,
+  .sectionTime,
+  .sectionDeadline {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    flex: 1;
+    flex-basis: 150px;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: solid 1px var(--border);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 10px;
+
+    & .progressValue,
+    .taskValue,
+    .timeValue,
+    .deadlineValue {
+      font-family: var(--font-mono);
+      font-size: clamp(1rem, 1.5vw, 1.7rem);
+      font-weight: 600;
+    }
+
+    & .taskValue {
+      color: var(--primary);
+    }
+
+    & .timeValue {
+      color: var(--warning);
+    }
+
+    & .progressValue {
+      color: var(--success);
+    }
+
+    & .deadlineValue {
+      color: var(--error);
+    }
+
+    & .deadlineValue.muted {
+      color: var(--secondary);
+    }
+
+    & h6 {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+  }
+}
+
+/* Task Main */
+.mainTask {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  border: var(--border) solid 1px;
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
+
+  .headerMainTask {
+    display: flex;
+    justify-content: space-between;
+
+    .groupAction {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+
+  .taskList {
+    flex: 1;
+    min-height: 0;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+  }
+}
+
+/* Task G */
+.task {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  gap: 25px;
+  border: solid var(--border) 1px;
+  background-color: var(--surface);
+  padding: 10px;
+  border-radius: var(--radius);
+
+  input[type="checkbox"] {
+    flex-shrink: 0;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #999;
+    border-radius: var(--radius-sm);
+
+    display: grid;
+    place-content: center;
+  }
+
+  input[type="checkbox"]::after {
+    content: "✓";
+    color: white;
+    font-size: 12px;
+    transform: scale(0);
+  }
+
+  input[type="checkbox"]:checked {
+    background: var(--success);
+    border: none;
+  }
+
+  input[type="checkbox"]:checked::after {
+    transform: scale(1);
+  }
+}
+
+/* Properties Project */
+.propertiesProject {
+  width: 100%;
+  height: 100%;
+  padding: 15px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  background-color: var(--surface);
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+
+  & .propertiesItem {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Activity Log Project */
+.activityLogProject {
+  width: 100%;
+  height: 100%;
+  padding: 15px 20px;
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  grid-column: 2 / 3;
+  grid-row: 2 / 4;
+
+  & .activityList {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow-y: auto;
+    gap: 15px;
+  }
+}

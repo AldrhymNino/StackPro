@@ -1,0 +1,58 @@
+.listNotifi {
+    padding: 10px;
+    gap: 10px;
+    position: fixed;
+    bottom: 0px;
+    left: var(--margin);
+    width: 350px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: visible;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--surface-alt);
+    box-shadow: 0px 0px 10px #a5a5a5;
+    align-items: center;
+    border-radius: var(--radius);
+    z-index: 11;
+
+    /* estado inicial */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0);
+
+    transition: opacity .25s ease-in-out, transform .25s ease-in-out;
+}
+
+.listNotifi::before {
+    content: '';
+    position: absolute;
+
+    bottom: 16px;
+    left: -20px;
+
+    border: 10px solid transparent;
+    border-right-color: var(--surface-alt);
+    z-index: 2;
+
+    filter: drop-shadow(-1px 0 5px rgba(0,0,0,0.2));
+}
+
+.listNotifi::after {
+    content: '';
+    position: absolute;
+
+    bottom: 15px;
+
+    left: -22px;
+
+    border: 11px solid transparent;
+    border-right-color: #a5a5a55e; 
+    z-index: 1;
+}
+
+.listNotifi.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-10px);
+}

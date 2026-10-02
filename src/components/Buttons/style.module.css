@@ -1,0 +1,397 @@
+/* =========================================
+   Base
+========================================= */
+
+.button {
+  border: 1px solid transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  box-sizing: border-box;
+  flex-shrink: 0;
+
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition),
+    opacity var(--transition);
+}
+
+.button svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+/* =========================================
+   Sizes
+========================================= */
+
+.sm {
+  min-height: 32px;
+  padding: 6px 12px;
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+}
+
+.md {
+  min-height: 40px;
+  padding: 9px 16px;
+  font-size: 0.95rem;
+  border-radius: var(--radius);
+}
+
+.lg {
+  min-height: 46px;
+  padding: 11px 20px;
+  font-size: 1rem;
+  border-radius: var(--radius);
+}
+
+/* =========================================
+   Solid
+========================================= */
+
+.solid {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-color: var(--button-bg);
+
+  box-shadow:
+    0 1px 2px color-mix(
+      in srgb,
+      var(--text) 10%,
+      transparent
+    );
+}
+
+.solid:hover:not(:disabled) {
+  background: var(--button-bg-hover);
+  border-color: var(--button-bg-hover);
+
+  transform: translateY(-1px);
+}
+
+.solid:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* =========================================
+   Outline
+========================================= */
+
+.outline {
+  background: var(--surface);
+  color: var(--button-color);
+  border-color: var(--border);
+}
+
+.outline:hover:not(:disabled) {
+  background: var(--button-soft);
+  border-color: color-mix(
+    in srgb,
+    var(--button-color) 40%,
+    var(--border)
+  );
+}
+
+/* =========================================
+   Ghost
+========================================= */
+
+.ghost {
+  background: transparent;
+  color: var(--button-color);
+  border-color: transparent;
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--button-soft);
+}
+
+/* =========================================
+   Icon
+========================================= */
+
+.icon {
+  width: var(--size, 36px);
+  height: var(--size, 36px);
+
+  min-width: var(--size, 36px);
+  min-height: var(--size, 36px);
+
+  padding: 0;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+
+  background: var(--surface);
+  color: var(--text-secondary);
+
+  box-shadow:
+    0 1px 2px color-mix(
+      in srgb,
+      var(--text) 6%,
+      transparent
+    );
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.icon:hover:not(:disabled) {
+  background: var(--button-soft);
+  border-color: color-mix(
+    in srgb,
+    var(--button-color) 25%,
+    var(--border)
+  );
+
+  color: var(--button-color);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 3px 8px color-mix(
+      in srgb,
+      var(--button-color) 10%,
+      transparent
+    );
+}
+
+.icon:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* =========================================
+   Colors
+========================================= */
+
+.current {
+  --button-bg: transparent;
+  --button-bg-hover: var(--text);
+
+  --button-color: var(--text);
+  --button-border: var(--border);
+
+  --button-soft: color-mix(
+    in srgb,
+    var(--text) 7%,
+    var(--surface)
+  );
+
+  --button-hover: color-mix(
+    in srgb,
+    var(--text) 10%,
+    var(--surface)
+  );
+
+  --button-text: var(--background);
+}
+
+.primary {
+  --button-bg: var(--primary);
+  --button-bg-hover: color-mix(
+    in srgb,
+    var(--primary) 88%,
+    black
+  );
+
+  --button-color: var(--primary);
+  --button-border: var(--primary);
+
+  --button-soft: color-mix(
+    in srgb,
+    var(--primary) 7%,
+    var(--surface)
+  );
+
+  --button-hover: color-mix(
+    in srgb,
+    var(--primary) 10%,
+    var(--surface)
+  );
+
+  --button-text: var(--text-light);
+}
+
+.secondary {
+  --button-bg: var(--secondary);
+  --button-bg-hover: color-mix(
+    in srgb,
+    var(--secondary) 88%,
+    black
+  );
+
+  --button-color: var(--secondary);
+  --button-border: var(--secondary);
+
+  --button-soft: color-mix(
+    in srgb,
+    var(--secondary) 7%,
+    var(--surface)
+  );
+
+  --button-hover: color-mix(
+    in srgb,
+    var(--secondary) 10%,
+    var(--surface)
+  );
+
+  --button-text: var(--text-light);
+}
+
+.success {
+  --button-bg: var(--success);
+  --button-bg-hover: color-mix(
+    in srgb,
+    var(--success) 88%,
+    black
+  );
+
+  --button-color: var(--success);
+  --button-border: var(--success);
+
+  --button-soft: color-mix(
+    in srgb,
+    var(--success) 7%,
+    var(--surface)
+  );
+
+  --button-hover: color-mix(
+    in srgb,
+    var(--success) 10%,
+    var(--surface)
+  );
+
+  --button-text: var(--text-light);
+}
+
+.warning {
+  --button-bg: var(--warning);
+  --button-bg-hover: color-mix(
+    in srgb,
+    var(--warning) 88%,
+    black
+  );
+
+  --button-color: var(--warning);
+  --button-border: var(--warning);
+
+  --button-soft: color-mix(
+    in srgb,
+    var(--warning) 7%,
+    var(--surface)
+  );
+
+  --button-hover: color-mix(
+    in srgb,
+    var(--warning) 10%,
+    var(--surface)
+  );
+
+  --button-text: var(--text-dark);
+}
+
+.error {
+  --button-bg: var(--error);
+  --button-bg-hover: color-mix(
+    in srgb,
+    var(--error) 88%,
+    black
+  );
+
+  --button-color: var(--error);
+  --button-border: var(--error);
+
+  --button-soft: color-mix(
+    in srgb,
+    var(--error) 7%,
+    var(--surface)
+  );
+
+  --button-hover: color-mix(
+    in srgb,
+    var(--error) 10%,
+    var(--surface)
+  );
+
+  --button-text: var(--text-light);
+}
+
+.info {
+  --button-bg: var(--info);
+  --button-bg-hover: color-mix(
+    in srgb,
+    var(--info) 88%,
+    black
+  );
+
+  --button-color: var(--info);
+  --button-border: var(--info);
+
+  --button-soft: color-mix(
+    in srgb,
+    var(--info) 7%,
+    var(--surface)
+  );
+
+  --button-hover: color-mix(
+    in srgb,
+    var(--info) 10%,
+    var(--surface)
+  );
+
+  --button-text: var(--text-dark);
+}
+
+/* =========================================
+   Focus
+========================================= */
+
+.button:focus-visible {
+  outline: 2px solid color-mix(
+    in srgb,
+    var(--button-color) 55%,
+    transparent
+  );
+
+  outline-offset: 2px;
+}
+
+/* =========================================
+   Not Hover
+========================================= */
+
+.notHover:hover:not(:disabled) {
+  background: transparent;
+  border-color: transparent;
+  color: var(--button-text);
+
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================
+   Disabled
+========================================= */
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+
+  transform: none;
+  box-shadow: none;
+}

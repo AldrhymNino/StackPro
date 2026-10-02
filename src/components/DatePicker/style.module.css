@@ -1,0 +1,155 @@
+.datePicker {
+  position: relative;
+  font-family: var(--font-mono);
+}
+
+.calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+
+  width: 280px;
+  padding: 14px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  z-index: 100;
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.calendarHeader span {
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.calendarHeader button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+
+  border: 0;
+  background: transparent;
+  color: var(--text);
+
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.calendarHeader button:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+.calendarHeader button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.weekDays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.weekDays {
+  margin-bottom: 6px;
+}
+
+.weekDays span {
+  text-align: center;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  color: var(--text-muted);
+}
+
+.day,
+.selectedDay,
+.today {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+/* Día normal */
+.day {
+  background: transparent;
+  color: var(--text);
+}
+
+.day:hover:not(:disabled) {
+  background: var(--surface-hover);
+}
+
+/* Día seleccionado */
+.selectedDay {
+  background: var(--primary);
+  color: white;
+}
+
+/* Hoy */
+.today {
+  background: var(--primary-hover);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.today:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+/* Días anteriores */
+.day:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.calendarFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 14px;
+
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+}

@@ -1,0 +1,7 @@
+.dashboardLayout {
+  width: 100dvw;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: 70px 1fr; /* clave */
+  grid-template-areas: 'navbar main';
+}

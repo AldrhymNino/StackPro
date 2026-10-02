@@ -1,0 +1,15 @@
+.project {
+  width: 100%;
+  margin: auto;
+  padding: 30px
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.content {
+  padding-top: 50px;
+}

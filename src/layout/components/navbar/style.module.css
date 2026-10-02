@@ -1,0 +1,258 @@
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+
+  width: 250px;
+  height: 100%;
+  grid-area: 'navbar';
+
+  box-sizing: border-box;
+
+  padding: 14px 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: var(--surface);
+  border-right: 1px solid var(--border-subtle);
+
+  overflow: hidden;
+
+  transition:
+    width var(--transition),
+    background-color var(--transition),
+    border-color var(--transition);
+}
+
+
+/* =========================================
+   HIDDEN
+========================================= */
+
+.navbar.hidden {
+  width: 70px;
+}
+
+
+/* =========================================
+   MENU
+========================================= */
+
+.menu {
+  margin-bottom: 24px;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+.links {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+/* =========================================
+   LINK
+========================================= */
+
+.link {
+  position: relative;
+
+  width: 100%;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 0 10px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  text-decoration: none;
+
+  transition:
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.icon {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: calc(var(--radius) - 2px);
+
+  color: var(--text-muted);
+
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.icon svg {
+  width: 19px;
+  height: 19px;
+
+  flex-shrink: 0;
+
+  stroke-width: 2;
+}
+
+
+/* =========================================
+   TEXT
+========================================= */
+
+.text {
+  margin-left: 8px;
+
+  white-space: nowrap;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  opacity: 1;
+  transform: translateX(0);
+
+  transition:
+    opacity 0.18s ease,
+    transform 0.22s ease;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.link:hover {
+  background: color-mix(
+    in srgb,
+    var(--info) 7%,
+    var(--surface)
+  );
+
+  border-color: color-mix(
+    in srgb,
+    var(--info) 14%,
+    var(--border-subtle)
+  );
+
+  color: var(--info);
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 3px 8px color-mix(
+      in srgb,
+      var(--info) 7%,
+      transparent
+    );
+}
+
+.link:hover .icon {
+  color: var(--info);
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   HIDDEN LINKS
+========================================= */
+
+.navbar.hidden .link {
+  justify-content: center;
+
+  padding: 0;
+}
+
+.navbar.hidden .text {
+  position: absolute;
+
+  width: 0;
+
+  margin: 0;
+
+  opacity: 0;
+
+  transform: translateX(-8px);
+
+  pointer-events: none;
+}
+
+.navbar.hidden .icon {
+  width: 38px;
+  height: 38px;
+
+  margin: 0;
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.navContainerBottom {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: auto;
+}
+
+
+/* =========================================
+   BELL
+========================================= */
+
+.navContainerBottom :global(.bell) {
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.link:focus-visible {
+  outline: 2px solid color-mix(
+    in srgb,
+    var(--info) 50%,
+    transparent
+  );
+
+  outline-offset: 2px;
+}

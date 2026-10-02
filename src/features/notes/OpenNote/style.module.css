@@ -1,0 +1,46 @@
+.openNote {
+  padding: 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  border-bottom: 2px solid var(--primary);
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+.content {
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.content h2,
+.content h3 {
+  margin-top: 1.5rem;
+  color: var(--secondary);
+}
+
+.content code {
+  background: var(--secondary);
+  color: var(--background);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.content pre {
+  background: var(--secondary);
+  padding: 1rem;
+  border-radius: 0.6rem;
+  overflow-x: auto;
+}
+
+
